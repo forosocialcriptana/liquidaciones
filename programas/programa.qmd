@@ -6,6 +6,7 @@ title: "`r params$descripcion` (`r params$codigo`)"
 format:
   html:
     embed-resources: true
+    include-before-body: _menu.html
     theme:
       light: flatly
       dark: darkly
