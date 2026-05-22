@@ -1,0 +1,136 @@
+Año;Presupuesto;Liquidación;Concepto
+2010;3162000.75;2984144.56;Impuestos directos
+2011;3385769.37;3068553.65;Impuestos directos
+2012;3814130.33;3587995.85;Impuestos directos
+2013;3879496.32;3743420.76;Impuestos directos
+2014;4011000;3849435.43;Impuestos directos
+2015;3877000;4016171.38;Impuestos directos
+2016;3905000;4183038.54;Impuestos directos
+2017;4105000;3684074.32;Impuestos directos
+2018;3844000;3556040.47;Impuestos directos
+2019;4065000;3983038.99;Impuestos directos
+2020;4026500;4424933.69;Impuestos directos
+2021;4103000;3913073.77;Impuestos directos
+2022;4045000;3824528.53;Impuestos directos
+2023;4057000;3687262.34;Impuestos directos
+2024;4317500;4200459.28;Impuestos directos
+2010;302000.25;171647.25;Impuestos indirectos
+2011;312433.63;89684.99;Impuestos indirectos
+2012;90500;129411.93;Impuestos indirectos
+2013;90500;66377.44;Impuestos indirectos
+2014;54000;91773.72;Impuestos indirectos
+2015;54000;84521.61;Impuestos indirectos
+2016;54000;51853.35;Impuestos indirectos
+2017;50000;88998.01;Impuestos indirectos
+2018;90500;100659.28;Impuestos indirectos
+2019;100000;125197.5;Impuestos indirectos
+2020;140000;158851.82;Impuestos indirectos
+2021;170000;260636.53;Impuestos indirectos
+2022;170000;241108.23;Impuestos indirectos
+2023;250000;130591.04;Impuestos indirectos
+2024;220000;151061.35;Impuestos indirectos
+2010;2809482.64;1835676.71;Tasas
+2011;3304989.25;3174765.01;Tasas
+2012;2838100;2714064.49;Tasas
+2013;2838113;2661099.08;Tasas
+2014;2702500;2875249.27;Tasas
+2015;2601870;2888689.11;Tasas
+2016;2678000;2703937.72;Tasas
+2017;2551800;2857789.37;Tasas
+2018;2846075;2801961.68;Tasas
+2019;2695335;2897148.45;Tasas
+2020;2923050;2477156.32;Tasas
+2021;2919500;2825393.08;Tasas
+2022;2988500;3080141.38;Tasas
+2023;3140400;2992949.47;Tasas
+2024;3189600;2908168.81;Tasas
+2010;3985292.09;4277838.76;Transferencias corrientes
+2011;3526256.26;4377968.97;Transferencias corrientes
+2012;3553922.28;3754254.28;Transferencias corrientes
+2013;3565471.1;4085035.09;Transferencias corrientes
+2014;3361458.23;4592523.84;Transferencias corrientes
+2015;3272000;4227020.18;Transferencias corrientes
+2016;3235300;4424682.09;Transferencias corrientes
+2017;3553451.74;4480169.2;Transferencias corrientes
+2018;3670440.75;4569074.44;Transferencias corrientes
+2019;3880009.9;4216859.72;Transferencias corrientes
+2020;3928477.73;4359307.61;Transferencias corrientes
+2021;3976535.5;5287702.41;Transferencias corrientes
+2022;4168206.83;6260902.55;Transferencias corrientes
+2023;4348702.11;5479231.36;Transferencias corrientes
+2024;4416113.19;6045117.34;Transferencias corrientes
+2010;136534.89;37862.23;Ingresos patrimoniales
+2011;65212;65995.15;Ingresos patrimoniales
+2012;57500;68963.58;Ingresos patrimoniales
+2013;49750;48424.02;Ingresos patrimoniales
+2014;46400;48118.18;Ingresos patrimoniales
+2015;54300;24584.71;Ingresos patrimoniales
+2016;16100;28879.12;Ingresos patrimoniales
+2017;16100;25127.26;Ingresos patrimoniales
+2018;26354.25;18986.05;Ingresos patrimoniales
+2019;26331.09;32326.39;Ingresos patrimoniales
+2020;24200;8210.1;Ingresos patrimoniales
+2021;46286.98;43431.49;Ingresos patrimoniales
+2022;83793.17;62500.58;Ingresos patrimoniales
+2023;78897.89;42476.06;Ingresos patrimoniales
+2024;39400;196574.09;Ingresos patrimoniales
+2010;1;0;Enajenacion inversiones
+2011;1;0;Enajenacion inversiones
+2012;0;0;Enajenacion inversiones
+2013;0;0;Enajenacion inversiones
+2014;0;134306.28;Enajenacion inversiones
+2015;0;0;Enajenacion inversiones
+2016;0;0;Enajenacion inversiones
+2017;0;4152.5;Enajenacion inversiones
+2018;0;0;Enajenacion inversiones
+2019;0;0;Enajenacion inversiones
+2020;0;33225;Enajenacion inversiones
+2021;80000;82568.59;Enajenacion inversiones
+2022;80000;23205664;Enajenacion inversiones
+2023;50000;72231.4;Enajenacion inversiones
+2024;0;210384.76;Enajenacion inversiones
+2010;379594.61;1432658.44;Transferencia capital
+2011;427000.75;481236.38;Transferencia capital
+2012;4998;135198.03;Transferencia capital
+2013;0;294174.24;Transferencia capital
+2014;0;432621.66;Transferencia capital
+2015;0;230527;Transferencia capital
+2016;0;246881;Transferencia capital
+2017;0;395493.08;Transferencia capital
+2018;0;448000.69;Transferencia capital
+2019;0;321947.68;Transferencia capital
+2020;0;782910.4;Transferencia capital
+2021;0;383061.4;Transferencia capital
+2022;190000;1882308.77;Transferencia capital
+2023;0;307852.26;Transferencia capital
+2024;0;472655.12;Transferencia capital
+2010;36000;6340.83;Activos financieros
+2011;36000;4902.96;Activos financieros
+2012;16000;17438.1;Activos financieros
+2013;16000;13556.22;Activos financieros
+2014;16000;13102.12;Activos financieros
+2015;16000;12410.1;Activos financieros
+2016;16000;18752.9;Activos financieros
+2017;12000;1700;Activos financieros
+2018;12000;10909.78;Activos financieros
+2019;12000;6855.26;Activos financieros
+2020;8000;8800;Activos financieros
+2021;10000;9377.59;Activos financieros
+2022;10000;8271.8;Activos financieros
+2023;10000;6713.6;Activos financieros
+2024;5000;2100;Activos financieros
+2010;656180.82;656180.82;Préstamos
+2011;0;553542.09;Préstamos
+2012;0;391850.05;Préstamos
+2013;0;0;Préstamos
+2014;0;0;Préstamos
+2015;0;0;Préstamos
+2016;0;0;Préstamos
+2017;0;0;Préstamos
+2018;0;0;Préstamos
+2019;0;0;Préstamos
+2020;0;0;Préstamos
+2021;0;190000;Préstamos
+2022;0;0;Préstamos
+2023;0;78683.62;Préstamos
+2024;0;0;Préstamos

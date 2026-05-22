@@ -1,0 +1,131 @@
+---
+params:
+  codigo: "1100"
+  descripcion: "Administración General"
+title: "`r params$descripcion` (`r params$codigo`)"
+format:
+  html:
+    embed-resources: true
+    theme:
+      light: flatly
+      dark: darkly
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+library(dplyr)
+library(echarts4r)
+library(DT)
+
+azul  <- "#2563eb"
+verde <- "#059669"
+rojo  <- "#e74c3c"
+
+df <- read.csv("../datos/gastos-programas.csv", stringsAsFactors = FALSE,
+               fileEncoding = "UTF-8", sep = ";")
+names(df) <- c("Año", "organismo", "programa", "economica", "sp",
+               "descripcion", "Presupuesto", "Liquidación")
+df <- df |>
+  mutate(
+    Presupuesto = as.numeric(Presupuesto),
+    Liquidación = as.numeric(Liquidación)
+  )
+
+fmt <- function(x) {
+  paste0(formatC(x, format = "f", digits = 2, big.mark = ".", decimal.mark = ","), " €")
+}
+
+d <- df |>
+  filter(programa == params$codigo) |>
+  group_by(Año) |>
+  summarise(
+    Presupuesto = sum(Presupuesto, na.rm = TRUE),
+    Liquidación = sum(Liquidación, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  mutate(
+    Dif_abs = Presupuesto - Liquidación,
+    Dif_rel = ifelse(Presupuesto != 0,
+                     round((Presupuesto - Liquidación) / Presupuesto * 100, 1),
+                     0)
+  )
+```
+
+## Evolución Presupuesto vs. Liquidación
+
+```{r grafico}
+d |>
+  mutate(Año = as.character(Año)) |>
+  e_charts(Año, height = "350px") |>
+  e_line(Presupuesto, name = "Presupuesto", smooth = FALSE,
+         symbol = "circle", symbolSize = 8,
+         lineStyle = list(width = 2.5),
+         areaStyle = list(opacity = 0.08)) |>
+  e_line(Liquidación, name = "Liquidación", smooth = FALSE,
+         symbol = "circle", symbolSize = 8,
+         lineStyle = list(width = 2.5),
+         areaStyle = list(opacity = 0.08)) |>
+  e_color(c(azul, verde)) |>
+  e_tooltip(trigger = "axis",
+            formatter = htmlwidgets::JS("
+              function(params) {
+                var tip = '<strong>' + params[0].axisValue + '</strong><br/>';
+                params.forEach(function(p) {
+                  var val = p.value[1].toLocaleString('es-ES',
+                    {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                  tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';
+                });
+                return tip;
+              }
+            ")) |>
+  e_legend(top = "top", left = "center") |>
+  e_y_axis(axisLabel = list(
+    formatter = htmlwidgets::JS("
+      function(val) {
+        return (val / 1000000).toFixed(2).replace('.', ',') + ' M€';
+      }
+    ")
+  )) |>
+  e_grid(left = "12%", right = "5%", bottom = "12%") |>
+  e_toolbox_feature(feature = "saveAsImage", title = "Guardar") |>
+  e_toolbox_feature(feature = "dataZoom", title = "Zoom") |>
+  e_datazoom(type = "inside")
+```
+
+## Detalle por Año
+
+```{r tabla}
+df_fmt <- d |>
+  mutate(
+    Año              = as.character(Año),
+    Presupuesto      = fmt(Presupuesto),
+    Liquidación      = fmt(Liquidación),
+    `Diferencia (€)` = fmt(Dif_abs),
+    `Diferencia (%)` = paste0(formatC(Dif_rel, format = "f",
+                                       digits = 1, decimal.mark = ","), "%"),
+    Dif_abs          = Dif_abs,
+    Dif_rel          = Dif_rel,
+    .keep = "none"
+  )
+
+datatable(df_fmt,
+          options = list(pageLength = 15, scrollX = TRUE, dom = "tip",
+                         columnDefs = list(
+                           list(className = "dt-right", targets = "_all"),
+                           list(visible = FALSE, targets = c(3, 4))
+                         )),
+          rownames = FALSE) |>
+  formatStyle("Presupuesto", textAlign = "right") |>
+  formatStyle("Liquidación", textAlign = "right") |>
+  formatStyle("Diferencia (€)",
+              valueColumns = "Dif_abs",
+              color = styleInterval(0, c(rojo, verde)),
+              fontWeight = "bold", textAlign = "right") |>
+  formatStyle("Diferencia (%)",
+              valueColumns = "Dif_rel",
+              color = styleInterval(0, c(rojo, verde)),
+              fontWeight = "bold", textAlign = "right")
+```

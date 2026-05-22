@@ -1,0 +1,320 @@
+---
+title: "Gastos Municipales (Clasificación Económica)"
+format:
+  dashboard:
+    orientation: rows
+    theme:
+      light: [flatly]
+      dark: [darkly, dashboard-dark.scss]
+---
+
+```{r carga-paquetes}
+library(dplyr)
+library(echarts4r)
+library(DT)
+```
+
+```{r configuración}
+# Colors
+azul <- "#2563eb"
+rojo <- "#e74c3c"
+verde <- "#059669"
+```
+
+```{r carga-datos}
+df <- read.csv("datos/gastos-economico.csv", stringsAsFactors = FALSE,
+               fileEncoding = "UTF-8")
+```
+
+```{r procesamiento-datos}
+# Asignar capítulo según la posición de cada concepto dentro del año
+# (el CSV siempre presenta los 32 conceptos en el mismo orden)
+df <- df |>
+  group_by(Año) |>
+  mutate(pos = row_number()) |>
+  ungroup() |>
+  mutate(
+    Capítulo = case_when(
+      pos <= 5  ~ "Cap. 1 - Gastos de personal",
+      pos <= 12 ~ "Cap. 2 - Bienes corrientes y servicios",
+      pos <= 14 ~ "Cap. 3 - Gastos financieros",
+      pos <= 19 ~ "Cap. 4 - Transferencias corrientes",
+      pos == 20 ~ "Cap. 5 - Fondo de contingencia",
+      pos <= 26 ~ "Cap. 6 - Inversiones reales",
+      pos <= 29 ~ "Cap. 7 - Transferencias de capital",
+      pos <= 31 ~ "Cap. 8 - Activos financieros",
+      pos == 32 ~ "Cap. 9 - Pasivos financieros",
+      TRUE      ~ "Otros"
+    )
+  ) |>
+  select(-pos) |>
+  mutate(
+    Dif_abs = Presupuesto - Liquidación,
+    Dif_rel = ifelse(!is.na(Presupuesto) & Presupuesto != 0,
+                     round((Presupuesto - Liquidación) / Presupuesto * 100, 1),
+                     0)
+  )
+```
+
+```{r funciones}
+# Función para formatear números como euros
+fmt <- function(x) paste0(formatC(x, format = "f", digits = 2, big.mark = ".", decimal.mark = ","), " €")
+
+# Agrega los datos de un capítulo por año
+cap_totales <- function(cap) {
+  df |>
+    filter(Capítulo == cap) |>
+    group_by(Año) |>
+    summarise(Presupuesto = sum(Presupuesto, na.rm = TRUE),
+              Liquidación = sum(Liquidación, na.rm = TRUE), .groups = "drop") |>
+    mutate(
+      Dif_abs = Presupuesto - Liquidación,
+      Dif_rel = ifelse(Presupuesto != 0,
+                       round((Presupuesto - Liquidación) / Presupuesto * 100, 1),
+                       0)
+    )
+}
+
+# Gráfico de evolución (Presupuesto vs Liquidación por año)
+grafico_evolucion <- function(df) {
+  df |>
+    mutate(Año = as.character(Año)) |>
+    e_charts(Año) |>
+    e_line(Presupuesto, name = "Presupuesto", smooth = FALSE,
+           symbol = "circle", symbolSize = 8,
+           lineStyle = list(width = 2.5),
+           areaStyle = list(opacity = 0.08)) |>
+    e_line(Liquidación, name = "Liquidación", smooth = FALSE,
+           symbol = "circle", symbolSize = 8,
+           lineStyle = list(width = 2.5),
+           areaStyle = list(opacity = 0.08)) |>
+    e_color(c(azul, verde)) |>
+    e_tooltip(trigger = "axis",
+              formatter = htmlwidgets::JS("
+                function(params) {
+                  var tip = '<strong>' + params[0].axisValue + '</strong><br/>';
+                  params.forEach(function(p) {
+                    var val = p.value[1].toLocaleString('es-ES',
+                      {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';
+                  });
+                  return tip;
+                }
+              ")) |>
+    e_legend(top = "top", left = "center") |>
+    e_y_axis(axisLabel = list(
+      formatter = htmlwidgets::JS("
+        function(val) {
+          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';
+        }
+      ")
+    )) |>
+    e_grid(left = "12%", right = "5%", bottom = "12%") |>
+    e_toolbox_feature(feature = "saveAsImage", title = "Guardar") |>
+    e_toolbox_feature(feature = "dataZoom", title = "Zoom") |>
+    e_datazoom(type = "inside")
+}
+
+# Tabla con el detalle por año
+tabla_evolucion <- function(df) {
+  df_fmt <- df |>
+    mutate(
+      Año = as.character(Año),
+      Presupuesto = fmt(Presupuesto),
+      Liquidación = fmt(Liquidación),
+      `Diferencia (€)` = fmt(Dif_abs),
+      `Diferencia (%)` = paste0(formatC(Dif_rel, format = "f",
+                                         digits = 1, decimal.mark = ","), "%"),
+      Dif_abs = Dif_abs,
+      Dif_rel = Dif_rel,
+      .keep = "none"
+    )
+  datatable(df_fmt,
+            options = list(pageLength = 15, scrollX = TRUE, dom = "tip",
+                           columnDefs = list(
+                             list(className = 'dt-right', targets = "_all"),
+                             list(visible = FALSE, targets = c(3, 4))
+                           )),
+            rownames = FALSE) |>
+    formatStyle("Presupuesto", textAlign = "right") |>
+    formatStyle("Liquidación", textAlign = "right") |>
+    formatStyle("Diferencia (€)",
+                valueColumns = "Dif_abs",
+                color = styleInterval(0, c(rojo, verde)),
+                fontWeight = "bold", textAlign = "right") |>
+    formatStyle("Diferencia (%)",
+                valueColumns = "Dif_rel",
+                color = styleInterval(0, c(rojo, verde)),
+                fontWeight = "bold", textAlign = "right")
+}
+```
+
+# Totales
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución Total de Gastos (todos los capítulos)"
+totales <- df |>
+  group_by(Año) |>
+  summarise(Presupuesto = sum(Presupuesto, na.rm = TRUE),
+            Liquidación = sum(Liquidación, na.rm = TRUE), .groups = "drop") |>
+  mutate(
+    Dif_abs = Presupuesto - Liquidación,
+    Dif_rel = ifelse(Presupuesto != 0,
+                     round((Presupuesto - Liquidación) / Presupuesto * 100, 1),
+                     0)
+  )
+grafico_evolucion(totales)
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle por Año"
+tabla_evolucion(totales)
+```
+
+# Cap. 1 Personal
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(cap_totales("Cap. 1 - Gastos de personal"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(cap_totales("Cap. 1 - Gastos de personal"))
+```
+
+# Cap. 2 Bienes corrientes
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(cap_totales("Cap. 2 - Bienes corrientes y servicios"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(cap_totales("Cap. 2 - Bienes corrientes y servicios"))
+```
+
+# Cap. 3 Gastos financieros
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(cap_totales("Cap. 3 - Gastos financieros"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(cap_totales("Cap. 3 - Gastos financieros"))
+```
+
+# Cap. 4 Transf. corrientes
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(cap_totales("Cap. 4 - Transferencias corrientes"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(cap_totales("Cap. 4 - Transferencias corrientes"))
+```
+
+# Cap. 5 Contingencia
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(cap_totales("Cap. 5 - Fondo de contingencia"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(cap_totales("Cap. 5 - Fondo de contingencia"))
+```
+
+# Cap. 6 Inversiones
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(cap_totales("Cap. 6 - Inversiones reales"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(cap_totales("Cap. 6 - Inversiones reales"))
+```
+
+# Cap. 7 Transf. capital
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(cap_totales("Cap. 7 - Transferencias de capital"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(cap_totales("Cap. 7 - Transferencias de capital"))
+```
+
+# Cap. 8 Activos financieros
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(cap_totales("Cap. 8 - Activos financieros"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(cap_totales("Cap. 8 - Activos financieros"))
+```
+
+# Cap. 9 Pasivos financieros
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(cap_totales("Cap. 9 - Pasivos financieros"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(cap_totales("Cap. 9 - Pasivos financieros"))
+```

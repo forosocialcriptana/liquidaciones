@@ -1,0 +1,10 @@
+/*-- scss:rules --*/
+
+// Fix DataTables text color in dark mode
+table.dataTable tbody td,
+table.dataTable thead th,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate,
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: #ddd;
+}

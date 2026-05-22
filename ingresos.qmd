@@ -1,0 +1,287 @@
+---
+title: "Ingresos Municipales"
+format:
+  dashboard:
+    orientation: rows
+    theme:
+      light: [flatly]
+      dark: [darkly, dashboard_ingresos_dark.scss]
+---
+
+```{r carga-paquetes}
+#| label: setup
+#| include: false
+
+library(dplyr)
+library(echarts4r)
+library(DT)
+```
+
+```{r configuración}
+# Colors
+azul <- "#2563eb"
+rojo <- "#e74c3c"
+verde <- "#059669"
+``` 
+
+```{r carga-datos}
+df <- read.csv("datos/ingresos.csv", sep = ";", stringsAsFactors = FALSE,
+                   fileEncoding = "UTF-8")
+``` 
+
+```{r procesamiento-datos}
+df <- df |>
+  mutate(
+    Dif_abs = Liquidación - Presupuesto,
+    Dif_rel = ifelse(Presupuesto != 0,
+                     round((Liquidación - Presupuesto) / Presupuesto * 100, 1),
+                     0)
+  )
+```
+
+```{r funciones}
+fmt <- function(x) paste0(formatC(x, format = "f", digits = 2, big.mark = ".", decimal.mark = ",")," €")
+
+# Función para generar un gráfico de evlución de los ingresos
+grafico_evolucion <- function(df) {
+  df |>
+    mutate(Año = as.character(Año)) |>
+    e_charts(Año) |>
+    e_line(Presupuesto, name = "Presupuesto", smooth = FALSE,
+           symbol = "circle", symbolSize = 8,
+           lineStyle = list(width = 2.5),
+           areaStyle = list(opacity = 0.08)) |>
+    e_line(Liquidación, name = "Liquidación", smooth = FALSE,
+           symbol = "circle", symbolSize = 8,
+           lineStyle = list(width = 2.5),
+           areaStyle = list(opacity = 0.08)) |>
+    e_color(c(azul, verde)) |>
+    e_tooltip(trigger = "axis",
+              formatter = htmlwidgets::JS("
+                function(params) {
+                  var tip = '<strong>' + params[0].axisValue + '</strong><br/>';
+                  params.forEach(function(p) {
+                    var val = p.value[1].toLocaleString('es-ES',
+                      {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';
+                  });
+                  return tip;
+                }
+              ")) |>
+    e_legend(top = "top", left = "center") |>
+    e_y_axis(axisLabel = list(
+      formatter = htmlwidgets::JS("
+        function(val) {
+          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';
+        }
+      ")
+    )) |>
+    e_grid(left = "12%", right = "5%", bottom = "12%") |>
+    e_toolbox_feature(feature = "saveAsImage", title = "Guardar") |>
+    e_toolbox_feature(feature = "dataZoom", title = "Zoom") |>
+    e_datazoom(type = "inside")
+}
+
+# Función para generar una tabla con el detalle de los ingresos
+tabla_evolucion <- function(df) {
+  df_fmt <- df |>
+    mutate(
+      Año = as.character(Año),
+      Presupuesto = fmt(Presupuesto),
+      Liquidación = fmt(Liquidación),
+      `Diferencia (€)` = fmt(Dif_abs),
+      `Diferencia (%)` = paste0(formatC(Dif_rel * 100, format = "f",
+                                         digits = 1, decimal.mark = ","), "%"),
+      Dif_abs = Dif_abs,
+      Dif_rel = Dif_rel,
+      .keep = "none"
+    )
+  datatable(df_fmt,
+            options = list(pageLength = 15, scrollX = TRUE, dom = "tip",
+                           columnDefs = list(
+                             list(className = 'dt-right', targets = "_all"),
+                             list(visible = FALSE, targets = c(3, 4))
+                           )),
+            rownames = FALSE) |>
+    formatStyle("Presupuesto", textAlign = "right") |>
+    formatStyle("Liquidación", textAlign = "right") |>
+    formatStyle("Diferencia (€)",
+                valueColumns = "Dif_abs",
+                color = styleInterval(0, c(rojo, verde)),
+                fontWeight = "bold", textAlign = "right") |>
+    formatStyle("Diferencia (%)",
+                valueColumns = "Dif_rel",
+                color = styleInterval(0, c(rojo, verde)),
+                fontWeight = "bold", textAlign = "right")
+}
+```
+
+# Totales
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución Total de Ingresos (todos los conceptos)"
+totales <- df |>
+  group_by(Año) |>
+  summarise(Presupuesto = sum(Presupuesto),
+            Liquidación = sum(Liquidación), .groups = "drop") |>
+  mutate(
+    Dif_abs = Liquidación - Presupuesto,
+    Dif_rel = ifelse(Presupuesto != 0,
+                     round((Liquidación - Presupuesto) / Presupuesto * 100, 1),
+                     0)
+  )
+grafico_evolucion(totales)
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle por Año"
+tabla_evolucion(totales)
+```
+
+# Impuestos directos
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(df |> filter(Concepto == "Impuestos directos"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(df |> filter(Concepto == "Impuestos directos"))
+```
+
+# Impuestos indirectos
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(df |> filter(Concepto == "Impuestos indirectos"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(df |> filter(Concepto == "Impuestos indirectos"))
+```
+
+# Tasas
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(df |> filter(Concepto == "Tasas"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(df |> filter(Concepto == "Tasas"))
+```
+
+# Transferencias corrientes
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(df |> filter(Concepto == "Transferencias corrientes"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(df |> filter(Concepto == "Transferencias corrientes"))
+```
+
+# Ingresos patrimoniales
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(df |> filter(Concepto == "Ingresos patrimoniales"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(df |> filter(Concepto == "Ingresos patrimoniales"))
+```
+
+# Enajenación inversiones
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(df |> filter(Concepto == "Enajenacion inversiones"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(df |> filter(Concepto == "Enajenacion inversiones"))
+```
+
+# Transferencia capital
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(df |> filter(Concepto == "Transferencia capital"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(df |> filter(Concepto == "Transferencia capital"))
+```
+
+# Activos financieros
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(df |> filter(Concepto == "Activos financieros"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(df |> filter(Concepto == "Activos financieros"))
+```
+
+# Préstamos
+
+## Row {height=45%}
+
+```{r}
+#| title: "Evolución"
+grafico_evolucion(df |> filter(Concepto == "Préstamos"))
+```
+
+## Row {height=55%}
+
+```{r}
+#| title: "Detalle"
+tabla_evolucion(df |> filter(Concepto == "Préstamos"))
+```

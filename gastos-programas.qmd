@@ -1,0 +1,87 @@
+---
+title: "Gastos por Programas"
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    toc: false
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+La **clasificación por programas** organiza el gasto municipal según las políticas y servicios que presta el Ayuntamiento, independientemente de quién lo ejecuta o qué tipo de gasto sea. Cada programa recoge el coste total de una actividad concreta: desde la recogida de basuras hasta las fiestas patronales o el mantenimiento de colegios.
+
+Los programas se agrupan en cinco **áreas de gasto**, que reflejan los grandes ámbitos de actuación municipal. Selecciona un programa para ver la evolución de su presupuesto y liquidación a lo largo de los años.
+
+---
+
+```{r menu}
+#| results: asis
+
+library(dplyr)
+
+df <- read.csv("datos/gastos-programas.csv", stringsAsFactors = FALSE,
+               fileEncoding = "UTF-8", sep = ";")
+names(df) <- c("Año", "organismo", "programa", "economica", "sp",
+               "descripcion", "Presupuesto", "Liquidación")
+
+etiquetas <- df |>
+  distinct(programa, descripcion) |>
+  arrange(descripcion) |>
+  mutate(area = substr(programa, 1, 1))
+
+areas_def <- list(
+  list(code = "1", label = "Servicios Públicos Básicos",    color = "primary"),
+  list(code = "2", label = "Protección y Promoción Social", color = "success"),
+  list(code = "3", label = "Bienes Públicos Preferentes",   color = "warning"),
+  list(code = "4", label = "Actuaciones Económicas",        color = "danger"),
+  list(code = "9", label = "Actuaciones Generales",         color = "secondary")
+)
+
+items <- lapply(areas_def, function(ar) {
+  progs <- etiquetas |> filter(area == ar$code)
+  if (nrow(progs) == 0) return("")
+
+  enlaces <- paste(
+    sprintf(
+      '<li class="py-1 border-bottom border-light-subtle">
+         <a href="programas/%s.html" class="text-decoration-none d-flex justify-content-between align-items-center">
+           <span>%s</span>
+           <span class="badge text-bg-%s ms-2">%s</span>
+         </a>
+       </li>',
+      progs$programa, progs$descripcion, ar$color, progs$programa
+    ),
+    collapse = "\n"
+  )
+
+  sprintf(
+    '<div class="accordion-item">
+       <h2 class="accordion-header">
+         <button class="accordion-button" type="button"
+                 data-bs-toggle="collapse" data-bs-target="#area%s">
+           <span class="badge text-bg-%s me-2">Área %s</span>
+           <strong>%s</strong>
+           <span class="ms-2 text-muted fw-normal small">(%d programas)</span>
+         </button>
+       </h2>
+       <div id="area%s" class="accordion-collapse collapse show">
+         <div class="accordion-body p-0">
+           <ul class="list-unstyled mb-0 px-3 py-2">
+             %s
+           </ul>
+         </div>
+       </div>
+     </div>',
+    ar$code, ar$color, ar$code, ar$label, nrow(progs),
+    ar$code, enlaces
+  )
+})
+
+cat('<div class="accordion" id="menuProgramas">\n')
+cat(paste(items[nchar(items) > 0], collapse = "\n"))
+cat('\n</div>\n')
+```

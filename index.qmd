@@ -1,0 +1,47 @@
+---
+title: "Liquidación Presupuestaria Municipal"
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    toc: false
+execute:
+  echo: false
+---
+
+## ¿Qué es la liquidación del presupuesto municipal?
+
+El **presupuesto municipal** es el documento que aprueba el Ayuntamiento cada año y que recoge, por un lado, los ingresos que prevé obtener (impuestos, tasas, subvenciones…) y, por otro, los gastos que planea realizar (personal, servicios, inversiones…). Es, en esencia, el plan económico del municipio para ese ejercicio.
+
+La **liquidación presupuestaria** es el documento con el que se cierra el ejercicio. Recoge lo que finalmente ocurrió: cuánto se ingresó en realidad, cuánto se gastó y en qué. La diferencia entre lo presupuestado y lo liquidado refleja la capacidad de gestión del Ayuntamiento y la fidelidad de sus previsiones.
+
+Por ley, los ayuntamientos deben aprobar y publicar la liquidación del presupuesto antes del 1 de octubre del ejercicio siguiente. Este portal recoge las liquidaciones del Ayuntamiento de Campo de Criptana de los últimos años y permite explorarlas de forma visual e interactiva.
+
+---
+
+## Explorar las liquidaciones
+
+```{=html}
+<div class="grid gap-4 mt-3" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); display: grid;">
+
+  <a href="gastos-economica.html" class="btn btn-warning btn-lg d-flex flex-column align-items-center gap-2 py-4 text-decoration-none">
+    <span style="font-size:2rem;">📊</span>
+    <strong>Gastos Económicos</strong>
+    <small class="fw-normal opacity-75">Detalle del gasto por clasificación económica: personal, bienes, transferencias, inversiones y deuda.</small>
+  </a>
+
+  <a href="gastos-programas.html" class="btn btn-danger btn-lg d-flex flex-column align-items-center gap-2 py-4 text-decoration-none">
+    <span style="font-size:2rem;">🏛️</span>
+    <strong>Gastos por Programas</strong>
+    <small class="fw-normal opacity-75">Gasto desglosado por áreas y programas de actuación: servicios públicos, social, cultura, economía y gobierno.</small>
+  </a>
+
+   <a href="ingresos.html" class="btn btn-primary btn-lg d-flex flex-column align-items-center gap-2 py-4 text-decoration-none">
+    <span style="font-size:2rem;">💰</span>
+    <strong>Ingresos</strong>
+    <small class="fw-normal opacity-75">Clasificación económica de los ingresos: impuestos, tasas, transferencias y otros derechos reconocidos.</small>
+  </a>
+
+</div>
+```

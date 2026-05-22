@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Gastos Municipales (Clasificación Económica)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="gastos-economica_files/libs/clipboard/clipboard.min.js"></script>
+<script src="gastos-economica_files/libs/quarto-html/quarto.js"></script>
+<script src="gastos-economica_files/libs/quarto-html/popper.min.js"></script>
+<script src="gastos-economica_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="gastos-economica_files/libs/quarto-html/anchor.min.js"></script>
+<link href="gastos-economica_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="gastos-economica_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="gastos-economica_files/libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="gastos-economica_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="gastos-economica_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="gastos-economica_files/libs/bootstrap/bootstrap-1612d077681202f2e113f9100c102249.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="gastos-economica_files/libs/bootstrap/bootstrap-dark-56809ce3ff242df9dceabd831b147668.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="gastos-economica_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="gastos-economica_files/libs/quarto-dashboard/stickythead.js"></script>
+<script src="gastos-economica_files/libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
+<script src="gastos-economica_files/libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
+<script src="gastos-economica_files/libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
+<script src="gastos-economica_files/libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="gastos-economica_files/libs/quarto-dashboard/components.js"></script>
+<link href="gastos-economica_files/libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
+<link href="gastos-economica_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="gastos-economica_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="gastos-economica_files/libs/echarts4r-6.0.0/echarts.min.js"></script>
+<script src="gastos-economica_files/libs/echarts4r-6.0.0/ecStat.min.js"></script>
+<script src="gastos-economica_files/libs/echarts4r-6.0.0/dataTool.min.js"></script>
+<script src="gastos-economica_files/libs/echarts4r-binding-0.5.0/echarts4r.js"></script>
+<link href="gastos-economica_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="gastos-economica_files/libs/datatables-binding-0.34.0/datatables.js"></script>
+<script src="gastos-economica_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="gastos-economica_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="gastos-economica_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="gastos-economica_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="gastos-economica_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="gastos-economica_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+
+</head>
+
+<body class="quarto-dashboard dashboard-fill fullcontent">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Gastos Municipales (Clasificación Económica)</a></div>
+        
+        
+      </div>
+    </div>
+<a class="quarto-color-scheme-toggle" href="" onclick="window.quartoToggleColorScheme(); return false;"><i class="bi"></i></a><div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-totales" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#totales" data-scrolling="false" href="#totales" aria-controls="totales" aria-selected="true"><span class="nav-link-text">Totales</span></a></li><li class="nav-item" role="presentation"><a id="tab-cap.-1-personal" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#cap.-1-personal" data-scrolling="false" href="#cap.-1-personal" aria-controls="cap.-1-personal" aria-selected="false"><span class="nav-link-text">Cap. 1 Personal</span></a></li><li class="nav-item" role="presentation"><a id="tab-cap.-2-bienes-corrientes" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#cap.-2-bienes-corrientes" data-scrolling="false" href="#cap.-2-bienes-corrientes" aria-controls="cap.-2-bienes-corrientes" aria-selected="false"><span class="nav-link-text">Cap. 2 Bienes corrientes</span></a></li><li class="nav-item" role="presentation"><a id="tab-cap.-3-gastos-financieros" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#cap.-3-gastos-financieros" data-scrolling="false" href="#cap.-3-gastos-financieros" aria-controls="cap.-3-gastos-financieros" aria-selected="false"><span class="nav-link-text">Cap. 3 Gastos financieros</span></a></li><li class="nav-item" role="presentation"><a id="tab-cap.-4-transf.-corrientes" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#cap.-4-transf.-corrientes" data-scrolling="false" href="#cap.-4-transf.-corrientes" aria-controls="cap.-4-transf.-corrientes" aria-selected="false"><span class="nav-link-text">Cap. 4 Transf. corrientes</span></a></li><li class="nav-item" role="presentation"><a id="tab-cap.-5-contingencia" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#cap.-5-contingencia" data-scrolling="false" href="#cap.-5-contingencia" aria-controls="cap.-5-contingencia" aria-selected="false"><span class="nav-link-text">Cap. 5 Contingencia</span></a></li><li class="nav-item" role="presentation"><a id="tab-cap.-6-inversiones" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#cap.-6-inversiones" data-scrolling="false" href="#cap.-6-inversiones" aria-controls="cap.-6-inversiones" aria-selected="false"><span class="nav-link-text">Cap. 6 Inversiones</span></a></li><li class="nav-item" role="presentation"><a id="tab-cap.-7-transf.-capital" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#cap.-7-transf.-capital" data-scrolling="false" href="#cap.-7-transf.-capital" aria-controls="cap.-7-transf.-capital" aria-selected="false"><span class="nav-link-text">Cap. 7 Transf. capital</span></a></li><li class="nav-item" role="presentation"><a id="tab-cap.-8-activos-financieros" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#cap.-8-activos-financieros" data-scrolling="false" href="#cap.-8-activos-financieros" aria-controls="cap.-8-activos-financieros" aria-selected="false"><span class="nav-link-text">Cap. 8 Activos financieros</span></a></li><li class="nav-item" role="presentation"><a id="tab-cap.-9-pasivos-financieros" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#cap.-9-pasivos-financieros" data-scrolling="false" href="#cap.-9-pasivos-financieros" aria-controls="cap.-9-pasivos-financieros" aria-selected="false"><span class="nav-link-text">Cap. 9 Pasivos financieros</span></a></li></ul></div></div>
+</nav>
+</header>
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">  
+
+<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div id="totales" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-totales">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Evolución Total de Gastos (todos los capítulos)" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Evolución Total de Gastos (todos los capítulos)
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-38e0a533adb36d9dd4bf" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-38e0a533adb36d9dd4bf">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","11467087"]},{"value":["2011","11057662"]},{"value":["2012","10375151"]},{"value":["2013","10439330"]},{"value":["2014","10191358"]},{"value":["2015"," 9321499"]},{"value":["2016"," 9904400"]},{"value":["2017","10288352"]},{"value":["2018","10489370"]},{"value":["2019","10778675"]},{"value":["2020","11050228"]},{"value":["2021","11305322"]},{"value":["2022","11735500"]},{"value":["2023","11935000"]},{"value":["2024","12107802"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","13440025"]},{"value":["2011","11942167"]},{"value":["2012"," 9500542"]},{"value":["2013","10493098"]},{"value":["2014","10731440"]},{"value":["2015","10419001"]},{"value":["2016","10249472"]},{"value":["2017","12448896"]},{"value":["2018","12307758"]},{"value":["2019","11510096"]},{"value":["2020","11841127"]},{"value":["2021","12660056"]},{"value":["2022","14115535"]},{"value":["2023","14311600"]},{"value":["2024","13292224"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Detalle por Año" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Detalle por Año
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-339bf4deb7efe19754d5" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-339bf4deb7efe19754d5">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["11.467.087,05 €","11.057.662,26 €","10.375.150,61 €","10.439.330,42 €","10.191.358,23 €","9.321.498,89 €","9.904.400,00 €","10.288.351,74 €","10.489.370,00 €","10.778.675,09 €","11.050.227,73 €","11.305.322,48 €","11.735.500,00 €","11.935.000,00 €","12.107.802,43 €"],["13.440.024,97 €","11.942.166,54 €","9.500.542,40 €","10.493.098,13 €","10.731.439,68 €","10.419.000,56 €","10.249.472,22 €","12.448.896,22 €","12.307.758,50 €","11.510.095,66 €","11.841.126,57 €","12.660.056,21 €","14.115.535,28 €","14.311.600,06 €","13.292.224,23 €"],[-1972937.92,-884504.2800000012,874608.209999999,-53767.70999999903,-540081.4499999993,-1097501.67,-345072.2200000007,-2160544.48,-1818388.5,-731420.5700000003,-790898.8399999999,-1354733.73,-2380035.279999999,-2376600.060000001,-1184421.800000001],[-17.2,-8,8.4,-0.5,-5.3,-11.8,-3.5,-21,-17.3,-6.8,-7.2,-12,-20.3,-19.9,-9.800000000000001],["-1.972.937,92 €","-884.504,28 €","874.608,21 €","-53.767,71 €","-540.081,45 €","-1.097.501,67 €","-345.072,22 €","-2.160.544,48 €","-1.818.388,50 €","-731.420,57 €","-790.898,84 €","-1.354.733,73 €","-2.380.035,28 €","-2.376.600,06 €","-1.184.421,80 €"],["-17,2%","-8,0%","8,4%","-0,5%","-5,3%","-11,8%","-3,5%","-21,0%","-17,3%","-6,8%","-7,2%","-12,0%","-20,3%","-19,9%","-9,8%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="cap.-1-personal" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-cap.-1-personal">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Evolución" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Evolución
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-c7a69cd9077bdbd32fc4" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-c7a69cd9077bdbd32fc4">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","4542951"]},{"value":["2011","4513797"]},{"value":["2012","4535400"]},{"value":["2013","4587510"]},{"value":["2014","4710184"]},{"value":["2015","4952480"]},{"value":["2016","4891803"]},{"value":["2017","4840731"]},{"value":["2018","4967711"]},{"value":["2019","5362619"]},{"value":["2020","5643656"]},{"value":["2021","5738506"]},{"value":["2022","5643492"]},{"value":["2023","5871275"]},{"value":["2024","6306637"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","4643973"]},{"value":["2011","5098009"]},{"value":["2012","4286741"]},{"value":["2013","4487747"]},{"value":["2014","4682419"]},{"value":["2015","4842544"]},{"value":["2016","5112276"]},{"value":["2017","5279172"]},{"value":["2018","5013071"]},{"value":["2019","4951253"]},{"value":["2020","6127329"]},{"value":["2021","5959193"]},{"value":["2022","6535363"]},{"value":["2023","6683202"]},{"value":["2024","6570410"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Detalle" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Detalle
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-7eb6ff19338e7ec8ed6e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7eb6ff19338e7ec8ed6e">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["4.542.950,95 €","4.513.796,84 €","4.535.399,93 €","4.587.510,07 €","4.710.184,23 €","4.952.479,89 €","4.891.803,15 €","4.840.731,05 €","4.967.711,26 €","5.362.619,11 €","5.643.655,60 €","5.738.505,61 €","5.643.492,40 €","5.871.274,60 €","6.306.637,08 €"],["4.643.972,91 €","5.098.009,14 €","4.286.741,40 €","4.487.746,85 €","4.682.418,95 €","4.842.543,74 €","5.112.275,56 €","5.279.171,82 €","5.013.070,70 €","4.951.253,46 €","6.127.329,05 €","5.959.193,47 €","6.535.362,72 €","6.683.202,34 €","6.570.409,85 €"],[-101021.96,-584212.2999999998,248658.5300000003,99763.22000000067,27765.27999999933,109936.1500000004,-220472.4100000001,-438440.7700000005,-45359.44000000041,411365.6500000004,-483673.4500000002,-220687.8599999994,-891870.3199999994,-811927.7400000002,-263772.7700000005],[-2.2,-12.9,5.5,2.2,0.6,2.2,-4.5,-9.1,-0.9,7.7,-8.6,-3.8,-15.8,-13.8,-4.2],["-101.021,96 €","-584.212,30 €","248.658,53 €","99.763,22 €","27.765,28 €","109.936,15 €","-220.472,41 €","-438.440,77 €","-45.359,44 €","411.365,65 €","-483.673,45 €","-220.687,86 €","-891.870,32 €","-811.927,74 €","-263.772,77 €"],["-2,2%","-12,9%","5,5%","2,2%","0,6%","2,2%","-4,5%","-9,1%","-0,9%","7,7%","-8,6%","-3,8%","-15,8%","-13,8%","-4,2%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="cap.-2-bienes-corrientes" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-cap.-2-bienes-corrientes">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Evolución" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Evolución
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-5b89077d30f2317932e2" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-5b89077d30f2317932e2">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","3698665"]},{"value":["2011","3971290"]},{"value":["2012","3779957"]},{"value":["2013","3766378"]},{"value":["2014","3495670"]},{"value":["2015","2972555"]},{"value":["2016","3581045"]},{"value":["2017","3904016"]},{"value":["2018","4612665"]},{"value":["2019","4620967"]},{"value":["2020","4757891"]},{"value":["2021","4860478"]},{"value":["2022","5193532"]},{"value":["2023","5356672"]},{"value":["2024","5159384"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","3358991"]},{"value":["2011","4090593"]},{"value":["2012","3445666"]},{"value":["2013","3729931"]},{"value":["2014","3516574"]},{"value":["2015","3233157"]},{"value":["2016","3289339"]},{"value":["2017","3531683"]},{"value":["2018","5722037"]},{"value":["2019","5241155"]},{"value":["2020","4620499"]},{"value":["2021","4883876"]},{"value":["2022","5793809"]},{"value":["2023","5536170"]},{"value":["2024","5551766"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Detalle" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Detalle
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-3b12f34dc49678c01068" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3b12f34dc49678c01068">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["3.698.664,78 €","3.971.290,02 €","3.779.957,00 €","3.766.378,00 €","3.495.670,00 €","2.972.555,00 €","3.581.044,85 €","3.904.015,85 €","4.612.665,15 €","4.620.966,89 €","4.757.891,44 €","4.860.477,77 €","5.193.531,78 €","5.356.672,43 €","5.159.383,91 €"],["3.358.990,85 €","4.090.592,63 €","3.445.666,12 €","3.729.931,08 €","3.516.574,18 €","3.233.156,98 €","3.289.339,41 €","3.531.682,77 €","5.722.037,20 €","5.241.155,12 €","4.620.498,56 €","4.883.875,93 €","5.793.809,06 €","5.536.169,92 €","5.551.765,75 €"],[339673.9299999997,-119302.6100000003,334290.8800000004,36446.92000000039,-20904.18000000017,-260601.98,291705.4399999999,372333.0800000001,-1109372.05,-620188.2300000004,137392.8799999999,-23398.16000000108,-600277.2799999993,-179497.4900000002,-392381.8399999999],[9.199999999999999,-3,8.800000000000001,1,-0.6,-8.800000000000001,8.1,9.5,-24.1,-13.4,2.9,-0.5,-11.6,-3.4,-7.6],["339.673,93 €","-119.302,61 €","334.290,88 €","36.446,92 €","-20.904,18 €","-260.601,98 €","291.705,44 €","372.333,08 €","-1.109.372,05 €","-620.188,23 €","137.392,88 €","-23.398,16 €","-600.277,28 €","-179.497,49 €","-392.381,84 €"],["9,2%","-3,0%","8,8%","1,0%","-0,6%","-8,8%","8,1%","9,5%","-24,1%","-13,4%","2,9%","-0,5%","-11,6%","-3,4%","-7,6%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="cap.-3-gastos-financieros" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-cap.-3-gastos-financieros">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Evolución" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Evolución
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-f43609a8008a2f2769ea" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-f43609a8008a2f2769ea">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","168157.19"]},{"value":["2011","155525.39"]},{"value":["2012","243179.94"]},{"value":["2013","226050.00"]},{"value":["2014","102100.00"]},{"value":["2015"," 75587.00"]},{"value":["2016"," 69363.00"]},{"value":["2017"," 63836.00"]},{"value":["2018"," 28695.63"]},{"value":["2019"," 10820.00"]},{"value":["2020","  9320.00"]},{"value":["2021"," 16000.00"]},{"value":["2022"," 14000.00"]},{"value":["2023"," 57160.00"]},{"value":["2024","129178.00"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010"," 71362.08"]},{"value":["2011","118224.76"]},{"value":["2012","176650.76"]},{"value":["2013","111344.53"]},{"value":["2014"," 91207.75"]},{"value":["2015"," 35112.69"]},{"value":["2016"," 27801.95"]},{"value":["2017"," 21612.48"]},{"value":["2018","  4102.61"]},{"value":["2019","  4016.77"]},{"value":["2020","  7943.40"]},{"value":["2021"," 10795.80"]},{"value":["2022"," 12396.67"]},{"value":["2023"," 53049.75"]},{"value":["2024"," 91597.58"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Detalle" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Detalle
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-193368a0ecfe4d10a03f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-193368a0ecfe4d10a03f">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["168.157,19 €","155.525,39 €","243.179,94 €","226.050,00 €","102.100,00 €","75.587,00 €","69.363,00 €","63.836,00 €","28.695,63 €","10.820,00 €","9.320,00 €","16.000,00 €","14.000,00 €","57.160,00 €","129.178,00 €"],["71.362,08 €","118.224,76 €","176.650,76 €","111.344,53 €","91.207,75 €","35.112,69 €","27.801,95 €","21.612,48 €","4.102,61 €","4.016,77 €","7.943,40 €","10.795,80 €","12.396,67 €","53.049,75 €","91.597,58 €"],[96795.11,37300.63,66529.17999999999,114705.47,10892.25,40474.31,41561.05,42223.52,24593.02,6803.23,1376.6,5204.199999999999,1603.33,4110.25,37580.42],[57.6,24,27.4,50.7,10.7,53.5,59.9,66.09999999999999,85.7,62.9,14.8,32.5,11.5,7.2,29.1],["96.795,11 €","37.300,63 €","66.529,18 €","114.705,47 €","10.892,25 €","40.474,31 €","41.561,05 €","42.223,52 €","24.593,02 €","6.803,23 €","1.376,60 €","5.204,20 €","1.603,33 €","4.110,25 €","37.580,42 €"],["57,6%","24,0%","27,4%","50,7%","10,7%","53,5%","59,9%","66,1%","85,7%","62,9%","14,8%","32,5%","11,5%","7,2%","29,1%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="cap.-4-transf.-corrientes" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-cap.-4-transf.-corrientes">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Evolución" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Evolución
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-c1885aa2531c15393635" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-c1885aa2531c15393635">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","1214098.4"]},{"value":["2011","1240069.1"]},{"value":["2012","1052070.0"]},{"value":["2013","1130362.0"]},{"value":["2014","1121352.0"]},{"value":["2015"," 985011.0"]},{"value":["2016","1054296.0"]},{"value":["2017","1084578.8"]},{"value":["2018"," 529748.5"]},{"value":["2019"," 471589.6"]},{"value":["2020"," 434929.2"]},{"value":["2021"," 370139.1"]},{"value":["2022"," 384639.1"]},{"value":["2023"," 334500.0"]},{"value":["2024"," 302350.0"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010"," 855299.6"]},{"value":["2011","1187424.4"]},{"value":["2012"," 953584.2"]},{"value":["2013","1088162.3"]},{"value":["2014","1121875.9"]},{"value":["2015"," 914090.3"]},{"value":["2016"," 669386.0"]},{"value":["2017"," 951122.8"]},{"value":["2018"," 480200.9"]},{"value":["2019"," 265251.2"]},{"value":["2020"," 421199.8"]},{"value":["2021"," 313351.5"]},{"value":["2022"," 384306.3"]},{"value":["2023"," 337233.5"]},{"value":["2024"," 274987.8"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Detalle" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Detalle
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-abc94df650bf4473cf98" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-abc94df650bf4473cf98">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["1.214.098,38 €","1.240.069,09 €","1.052.070,00 €","1.130.362,00 €","1.121.352,00 €","985.011,00 €","1.054.296,00 €","1.084.578,84 €","529.748,54 €","471.589,59 €","434.929,20 €","370.139,10 €","384.639,10 €","334.500,00 €","302.350,00 €"],["855.299,58 €","1.187.424,41 €","953.584,17 €","1.088.162,34 €","1.121.875,86 €","914.090,30 €","669.386,03 €","951.122,83 €","480.200,90 €","265.251,15 €","421.199,83 €","313.351,53 €","384.306,30 €","337.233,47 €","274.987,82 €"],[358798.7999999998,52644.68000000017,98485.82999999996,42199.65999999992,-523.8600000001024,70920.69999999995,384909.97,133456.0099999999,49547.64000000001,206338.4399999999,13729.37000000005,56787.57000000001,332.7999999999884,-2733.47000000003,27362.17999999999],[29.6,4.2,9.4,3.7,-0,7.2,36.5,12.3,9.4,43.8,3.2,15.3,0.1,-0.8,9],["358.798,80 €","52.644,68 €","98.485,83 €","42.199,66 €","-523,86 €","70.920,70 €","384.909,97 €","133.456,01 €","49.547,64 €","206.338,44 €","13.729,37 €","56.787,57 €","332,80 €","-2.733,47 €","27.362,18 €"],["29,6%","4,2%","9,4%","3,7%","-0,0%","7,2%","36,5%","12,3%","9,4%","43,8%","3,2%","15,3%","0,1%","-0,8%","9,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="cap.-5-contingencia" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-cap.-5-contingencia">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Evolución" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Evolución
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-031a07255bff808b8cdb" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-031a07255bff808b8cdb">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","     0"]},{"value":["2011","     0"]},{"value":["2012","     0"]},{"value":["2013","     0"]},{"value":["2014","     0"]},{"value":["2015","     0"]},{"value":["2016","     0"]},{"value":["2017"," 20000"]},{"value":["2018"," 30000"]},{"value":["2019","180000"]},{"value":["2020"," 30000"]},{"value":["2021"," 36000"]},{"value":["2022"," 25000"]},{"value":["2023"," 10000"]},{"value":["2024"," 30000"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","0"]},{"value":["2011","0"]},{"value":["2012","0"]},{"value":["2013","0"]},{"value":["2014","0"]},{"value":["2015","0"]},{"value":["2016","0"]},{"value":["2017","0"]},{"value":["2018","0"]},{"value":["2019","0"]},{"value":["2020","0"]},{"value":["2021","0"]},{"value":["2022","0"]},{"value":["2023","0"]},{"value":["2024","0"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Detalle" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Detalle
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-0243b229f7d8ad689cc8" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0243b229f7d8ad689cc8">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","20.000,00 €","30.000,00 €","180.000,00 €","30.000,00 €","36.000,00 €","25.000,00 €","10.000,00 €","30.000,00 €"],["0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €"],[0,0,0,0,0,0,0,20000,30000,180000,30000,36000,25000,10000,30000],[0,0,0,0,0,0,0,100,100,100,100,100,100,100,100],["0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","20.000,00 €","30.000,00 €","180.000,00 €","30.000,00 €","36.000,00 €","25.000,00 €","10.000,00 €","30.000,00 €"],["0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","100,0%","100,0%","100,0%","100,0%","100,0%","100,0%","100,0%","100,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="cap.-6-inversiones" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-cap.-6-inversiones">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Evolución" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Evolución
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-9cddfd0fec33870a2fa6" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-9cddfd0fec33870a2fa6">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","1540885.4"]},{"value":["2011"," 811310.6"]},{"value":["2012"," 209206.0"]},{"value":["2013"," 146596.0"]},{"value":["2014"," 447152.0"]},{"value":["2015","  16574.0"]},{"value":["2016","  48695.0"]},{"value":["2017"," 180600.0"]},{"value":["2018"," 167190.5"]},{"value":["2019","  72479.5"]},{"value":["2020"," 118231.5"]},{"value":["2021"," 226000.0"]},{"value":["2022"," 409303.4"]},{"value":["2023"," 227141.0"]},{"value":["2024"," 105827.1"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","4216281.90"]},{"value":["2011","1117297.07"]},{"value":["2012","  77808.02"]},{"value":["2013"," 495239.83"]},{"value":["2014"," 524919.79"]},{"value":["2015"," 952576.48"]},{"value":["2016"," 864625.86"]},{"value":["2017","1548525.90"]},{"value":["2018"," 936078.44"]},{"value":["2019"," 993440.71"]},{"value":["2020"," 592451.28"]},{"value":["2021","1434253.48"]},{"value":["2022","1322338.19"]},{"value":["2023","1635917.09"]},{"value":["2024"," 732498.99"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Detalle" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Detalle
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-5d93613a8fc5ce0e629b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5d93613a8fc5ce0e629b">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["1.540.885,40 €","811.310,56 €","209.206,00 €","146.596,00 €","447.152,00 €","16.574,00 €","48.695,00 €","180.600,00 €","167.190,55 €","72.479,50 €","118.231,49 €","226.000,00 €","409.303,38 €","227.140,97 €","105.827,15 €"],["4.216.281,90 €","1.117.297,07 €","77.808,02 €","495.239,83 €","524.919,79 €","952.576,48 €","864.625,86 €","1.548.525,90 €","936.078,44 €","993.440,71 €","592.451,28 €","1.434.253,48 €","1.322.338,19 €","1.635.917,09 €","732.498,99 €"],[-2675396.5,-305986.51,131397.98,-348643.83,-77767.79000000004,-936002.48,-815930.86,-1367925.9,-768887.8900000001,-920961.21,-474219.79,-1208253.48,-913034.8099999999,-1408776.12,-626671.84],[-173.6,-37.7,62.8,-237.8,-17.4,-5647.4,-1675.6,-757.4,-459.9,-1270.7,-401.1,-534.6,-223.1,-620.2,-592.2],["-2.675.396,50 €","-305.986,51 €","131.397,98 €","-348.643,83 €","-77.767,79 €","-936.002,48 €","-815.930,86 €","-1.367.925,90 €","-768.887,89 €","-920.961,21 €","-474.219,79 €","-1.208.253,48 €","-913.034,81 €","-1.408.776,12 €","-626.671,84 €"],["-173,6%","-37,7%","62,8%","-237,8%","-17,4%","-5647,4%","-1675,6%","-757,4%","-459,9%","-1270,7%","-401,1%","-534,6%","-223,1%","-620,2%","-592,2%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="cap.-7-transf.-capital" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-cap.-7-transf.-capital">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Evolución" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Evolución
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-bcaf31d63eee8ecef8a0" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-bcaf31d63eee8ecef8a0">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","1.00"]},{"value":["2011","0.01"]},{"value":["2012","0.00"]},{"value":["2013","0.00"]},{"value":["2014","0.00"]},{"value":["2015","0.00"]},{"value":["2016","0.00"]},{"value":["2017","0.00"]},{"value":["2018","0.00"]},{"value":["2019","0.00"]},{"value":["2020","0.00"]},{"value":["2021","0.00"]},{"value":["2022","0.00"]},{"value":["2023","0.00"]},{"value":["2024","0.00"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","12000.00"]},{"value":["2011","    0.00"]},{"value":["2012","    0.00"]},{"value":["2013","    0.00"]},{"value":["2014","25084.77"]},{"value":["2015","24447.00"]},{"value":["2016","23304.57"]},{"value":["2017","    0.00"]},{"value":["2018","    0.00"]},{"value":["2019","    0.00"]},{"value":["2020","15113.21"]},{"value":["2021","    0.00"]},{"value":["2022","    0.00"]},{"value":["2023"," 3721.15"]},{"value":["2024","    0.00"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Detalle" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Detalle
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-d77d85333fdc8ea8cad7" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d77d85333fdc8ea8cad7">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["1,00 €","0,01 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €"],["12.000,00 €","0,00 €","0,00 €","0,00 €","25.084,77 €","24.447,00 €","23.304,57 €","0,00 €","0,00 €","0,00 €","15.113,21 €","0,00 €","0,00 €","3.721,15 €","0,00 €"],[-11999,0.01,0,0,-25084.77,-24447,-23304.57,0,0,0,-15113.21,0,0,-3721.15,0],[-1199900,100,0,0,0,0,0,0,0,0,0,0,0,0,0],["-11.999,00 €","0,01 €","0,00 €","0,00 €","-25.084,77 €","-24.447,00 €","-23.304,57 €","0,00 €","0,00 €","0,00 €","-15.113,21 €","0,00 €","0,00 €","-3.721,15 €","0,00 €"],["-1199900,0%","100,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="cap.-8-activos-financieros" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-cap.-8-activos-financieros">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Evolución" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Evolución
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-6ca5df97023f7a59f476" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-6ca5df97023f7a59f476">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","36000"]},{"value":["2011","36000"]},{"value":["2012","16000"]},{"value":["2013","16000"]},{"value":["2014","16000"]},{"value":["2015","16000"]},{"value":["2016","16000"]},{"value":["2017","12000"]},{"value":["2018","12000"]},{"value":["2019","12000"]},{"value":["2020"," 8000"]},{"value":["2021","10000"]},{"value":["2022","10000"]},{"value":["2023","10000"]},{"value":["2024"," 5000"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","16562.60"]},{"value":["2011"," 4902.96"]},{"value":["2012","17438.10"]},{"value":["2013","14166.22"]},{"value":["2014","13849.72"]},{"value":["2015","11762.50"]},{"value":["2016","18752.90"]},{"value":["2017"," 1700.00"]},{"value":["2018","10909.78"]},{"value":["2019"," 6855.26"]},{"value":["2020"," 8000.00"]},{"value":["2021"," 9377.59"]},{"value":["2022"," 8271.80"]},{"value":["2023"," 6713.60"]},{"value":["2024"," 2100.00"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Detalle" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Detalle
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-8a0c87fa5f443bfcec61" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8a0c87fa5f443bfcec61">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["36.000,00 €","36.000,00 €","16.000,00 €","16.000,00 €","16.000,00 €","16.000,00 €","16.000,00 €","12.000,00 €","12.000,00 €","12.000,00 €","8.000,00 €","10.000,00 €","10.000,00 €","10.000,00 €","5.000,00 €"],["16.562,60 €","4.902,96 €","17.438,10 €","14.166,22 €","13.849,72 €","11.762,50 €","18.752,90 €","1.700,00 €","10.909,78 €","6.855,26 €","8.000,00 €","9.377,59 €","8.271,80 €","6.713,60 €","2.100,00 €"],[19437.4,31097.04,-1438.099999999999,1833.780000000001,2150.280000000001,4237.5,-2752.900000000001,10300,1090.219999999999,5144.74,0,622.4099999999999,1728.200000000001,3286.4,2900],[54,86.40000000000001,-9,11.5,13.4,26.5,-17.2,85.8,9.1,42.9,0,6.2,17.3,32.9,58],["19.437,40 €","31.097,04 €","-1.438,10 €","1.833,78 €","2.150,28 €","4.237,50 €","-2.752,90 €","10.300,00 €","1.090,22 €","5.144,74 €","0,00 €","622,41 €","1.728,20 €","3.286,40 €","2.900,00 €"],["54,0%","86,4%","-9,0%","11,5%","13,4%","26,5%","-17,2%","85,8%","9,1%","42,9%","0,0%","6,2%","17,3%","32,9%","58,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="cap.-9-pasivos-financieros" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-cap.-9-pasivos-financieros">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Evolución" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Evolución
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-168d69a8b213542f2d6f" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-168d69a8b213542f2d6f">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","266329.35"]},{"value":["2011","329670.35"]},{"value":["2012","539337.74"]},{"value":["2013","566434.35"]},{"value":["2014","298900.00"]},{"value":["2015","303292.00"]},{"value":["2016","243198.00"]},{"value":["2017","182590.00"]},{"value":["2018","141358.87"]},{"value":["2019"," 48200.00"]},{"value":["2020"," 48200.00"]},{"value":["2021"," 48200.00"]},{"value":["2022"," 55533.34"]},{"value":["2023"," 68252.00"]},{"value":["2024"," 69426.29"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010"," 265555.05"]},{"value":["2011"," 325715.57"]},{"value":["2012"," 542653.83"]},{"value":["2013"," 566507.28"]},{"value":["2014"," 755508.66"]},{"value":["2015"," 405310.87"]},{"value":["2016"," 243985.94"]},{"value":["2017","1115080.42"]},{"value":["2018"," 141358.87"]},{"value":["2019","  48123.19"]},{"value":["2020","  48591.24"]},{"value":["2021","  49208.41"]},{"value":["2022","  59050.54"]},{"value":["2023","  55592.74"]},{"value":["2024","  68864.24"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-title="Detalle" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title"><span style="display: inline">
+Detalle
+</span></div></div>
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-2d39348b7294a31fec26" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2d39348b7294a31fec26">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["266.329,35 €","329.670,35 €","539.337,74 €","566.434,35 €","298.900,00 €","303.292,00 €","243.198,00 €","182.590,00 €","141.358,87 €","48.200,00 €","48.200,00 €","48.200,00 €","55.533,34 €","68.252,00 €","69.426,29 €"],["265.555,05 €","325.715,57 €","542.653,83 €","566.507,28 €","755.508,66 €","405.310,87 €","243.985,94 €","1.115.080,42 €","141.358,87 €","48.123,19 €","48.591,24 €","49.208,41 €","59.050,54 €","55.592,74 €","68.864,24 €"],[774.2999999999884,3954.77999999997,-3316.089999999967,-72.93000000005122,-456608.66,-102018.87,-787.9400000000023,-932490.4199999999,0,76.80999999999767,-391.239999999998,-1008.410000000003,-3517.200000000004,12659.26,562.0499999999884],[0.3,1.2,-0.6,-0,-152.8,-33.6,-0.3,-510.7,0,0.2,-0.8,-2.1,-6.3,18.5,0.8],["774,30 €","3.954,78 €","-3.316,09 €","-72,93 €","-456.608,66 €","-102.018,87 €","-787,94 €","-932.490,42 €","0,00 €","76,81 €","-391,24 €","-1.008,41 €","-3.517,20 €","12.659,26 €","562,05 €"],["0,3%","1,2%","-0,6%","-0,0%","-152,8%","-33,6%","-0,3%","-510,7%","0,0%","0,2%","-0,8%","-2,1%","-6,3%","18,5%","0,8%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /container fluid -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>
