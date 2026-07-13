@@ -57,6 +57,7 @@ names(df) <- c("Año", "organismo", "programa", "economica", "sp",
 
 etiquetas <- df |>
   distinct(programa, descripcion) |>
+  filter(!descripcion %in% c("¿", "¿?")) |>
   arrange(descripcion)
 
 # --- Generar menú de navegación ---
@@ -141,9 +142,12 @@ writeLines(nav_html, "programas/_menu.html", useBytes = FALSE)
 message("Menú generado en programas/_menu.html")
 
 # --- Renderizar páginas ---
-for (i in seq_len(nrow(etiquetas))) {
+for (i in 1:nrow(etiquetas)) {
   prog <- etiquetas$programa[i]
   desc <- etiquetas$descripcion[i]
+  # Las comillas dobles sin escapar rompen el YAML del front matter que
+  # Quarto reescribe con los params ya resueltos (p. ej. programa 92401).
+  desc <- gsub('"', "“", desc)
 
   message(sprintf("[%d/%d] Renderizando: %s", i, nrow(etiquetas), desc))
 

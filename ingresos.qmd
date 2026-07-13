@@ -5,7 +5,7 @@ format:
     orientation: rows
     theme:
       light: [flatly]
-      dark: [darkly, dashboard_ingresos_dark.scss]
+      dark: [darkly, dashboard-dark.scss]
 ---
 
 ```{r carga-paquetes}
@@ -90,7 +90,7 @@ tabla_evolucion <- function(df) {
       Presupuesto = fmt(Presupuesto),
       Liquidación = fmt(Liquidación),
       `Diferencia (€)` = fmt(Dif_abs),
-      `Diferencia (%)` = paste0(formatC(Dif_rel * 100, format = "f",
+      `Diferencia (%)` = paste0(formatC(Dif_rel, format = "f",
                                          digits = 1, decimal.mark = ","), "%"),
       Dif_abs = Dif_abs,
       Dif_rel = Dif_rel,

@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Gastos por Programas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="gastos-programas_files/libs/clipboard/clipboard.min.js"></script>
+<script src="gastos-programas_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="gastos-programas_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="gastos-programas_files/libs/quarto-html/popper.min.js"></script>
+<script src="gastos-programas_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="gastos-programas_files/libs/quarto-html/anchor.min.js"></script>
+<link href="gastos-programas_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="gastos-programas_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="gastos-programas_files/libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="gastos-programas_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="gastos-programas_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="gastos-programas_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="gastos-programas_files/libs/bootstrap/bootstrap-293cc809d15782442e9b1098eedb6797.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="gastos-programas_files/libs/bootstrap/bootstrap-dark-7b2b20282c8da1075b52e56187ace71c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="gastos-programas_files/libs/bootstrap/bootstrap-293cc809d15782442e9b1098eedb6797.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Gastos por Programas</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>La <strong>clasificación por programas</strong> organiza el gasto municipal según las políticas y servicios que presta el Ayuntamiento, independientemente de quién lo ejecuta o qué tipo de gasto sea. Cada programa recoge el coste total de una actividad concreta: desde la recogida de basuras hasta las fiestas patronales o el mantenimiento de colegios.</p>
+<p>Los programas se agrupan en cinco <strong>áreas de gasto</strong>, que reflejan los grandes ámbitos de actuación municipal. Selecciona un programa para ver la evolución de su presupuesto y liquidación a lo largo de los años.</p>
+<hr>
+<div id="menuProgramas" class="accordion">
+<div class="accordion-item">
+<pre><code>   &lt;h2 class="accordion-header"&gt;
+     &lt;button class="accordion-button" type="button"
+             data-bs-toggle="collapse" data-bs-target="#area1"&gt;
+       &lt;span class="badge text-bg-primary me-2"&gt;Área 1&lt;/span&gt;
+       &lt;strong&gt;Servicios Públicos Básicos&lt;/strong&gt;
+       &lt;span class="ms-2 text-muted fw-normal small"&gt;(31 programas)&lt;/span&gt;
+     &lt;/button&gt;
+   &lt;/h2&gt;
+   &lt;div id="area1" class="accordion-collapse collapse show"&gt;
+     &lt;div class="accordion-body p-0"&gt;
+       &lt;ul class="list-unstyled mb-0 px-3 py-2"&gt;
+         &lt;li class="py-1 border-bottom border-light-subtle"&gt;
+     &lt;a href="programas/16100.html" class="text-decoration-none d-flex justify-content-between align-items-center"&gt;
+       &lt;span&gt;Abastecimiento domiciliario de agua potable.&lt;/span&gt;
+       &lt;span class="badge text-bg-primary ms-2"&gt;16100&lt;/span&gt;
+     &lt;/a&gt;
+   &lt;/li&gt;</code></pre>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/16101.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Abastecimiento y distribución de aguas</span> <span class="badge text-bg-primary ms-2">16101</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/15000.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Administración General de Vivienda y Urbanismo</span> <span class="badge text-bg-primary ms-2">15000</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/17000.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Administración general del medio ambiente</span> <span class="badge text-bg-primary ms-2">17000</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/16000.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Alcantarillado.</span> <span class="badge text-bg-primary ms-2">16000</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/16500.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Alumbrado público</span> <span class="badge text-bg-primary ms-2">16500</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/16400.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Cementerio y servicios funerarios</span> <span class="badge text-bg-primary ms-2">16400</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/16010.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Depuración de aguas</span> <span class="badge text-bg-primary ms-2">16010</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/1100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Deuda Pública</span> <span class="badge text-bg-primary ms-2">1100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/16300.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Limpieza viaria</span> <span class="badge text-bg-primary ms-2">16300</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/17100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Parques y jardines</span> <span class="badge text-bg-primary ms-2">17100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/17101.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Parques y jardines</span> <span class="badge text-bg-primary ms-2">17101</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/17102.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Parques y jardines</span> <span class="badge text-bg-primary ms-2">17102</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/17103.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Parques y jardines</span> <span class="badge text-bg-primary ms-2">17103</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/17104.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Parques y jardines</span> <span class="badge text-bg-primary ms-2">17104</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/17105.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Parques y jardines</span> <span class="badge text-bg-primary ms-2">17105</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/17106.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Parques y jardines</span> <span class="badge text-bg-primary ms-2">17106</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/15320.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Pavimentación de vías públicas.</span> <span class="badge text-bg-primary ms-2">15320</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/15322.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Pavimentación de vías públicas.</span> <span class="badge text-bg-primary ms-2">15322</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/15323.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Pavimentación de vías públicas.</span> <span class="badge text-bg-primary ms-2">15323</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/13500.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Protección civil</span> <span class="badge text-bg-primary ms-2">13500</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/17210.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Protección contra la contaminación acústica, lumínica y atmosféri</span> <span class="badge text-bg-primary ms-2">17210</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/17200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Protección y mejora del medio ambiente</span> <span class="badge text-bg-primary ms-2">17200</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/16210.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Recogida de residuos.</span> <span class="badge text-bg-primary ms-2">16210</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/16102.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Saneamiento de aguas</span> <span class="badge text-bg-primary ms-2">16102</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/13300.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Seguridad del Tráfico y del estacionamiento</span> <span class="badge text-bg-primary ms-2">13300</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/13200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Seguridad y Orden Público</span> <span class="badge text-bg-primary ms-2">13200</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/13600.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Servicio de extinción de incendios</span> <span class="badge text-bg-primary ms-2">13600</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/15100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Urbanismo: planeamiento, gestión, ejecución y disciplina urbaníst</span> <span class="badge text-bg-primary ms-2">15100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/15500.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Vías Públicas</span> <span class="badge text-bg-primary ms-2">15500</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/15321.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Vías Públicas: otros gastos</span> <span class="badge text-bg-primary ms-2">15321</span> </a>
+</li>
+<pre><code>       &lt;/ul&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+<div class="accordion-item">
+<pre><code>   &lt;h2 class="accordion-header"&gt;
+     &lt;button class="accordion-button" type="button"
+             data-bs-toggle="collapse" data-bs-target="#area2"&gt;
+       &lt;span class="badge text-bg-success me-2"&gt;Área 2&lt;/span&gt;
+       &lt;strong&gt;Protección y Promoción Social&lt;/strong&gt;
+       &lt;span class="ms-2 text-muted fw-normal small"&gt;(61 programas)&lt;/span&gt;
+     &lt;/button&gt;
+   &lt;/h2&gt;
+   &lt;div id="area2" class="accordion-collapse collapse show"&gt;
+     &lt;div class="accordion-body p-0"&gt;
+       &lt;ul class="list-unstyled mb-0 px-3 py-2"&gt;
+         &lt;li class="py-1 border-bottom border-light-subtle"&gt;
+     &lt;a href="programas/23100.html" class="text-decoration-none d-flex justify-content-between align-items-center"&gt;
+       &lt;span&gt;Acción social&lt;/span&gt;
+       &lt;span class="badge text-bg-success ms-2"&gt;23100&lt;/span&gt;
+     &lt;/a&gt;
+   &lt;/li&gt;</code></pre>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23000.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Administración General de servicios sociales</span> <span class="badge text-bg-success ms-2">23000</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23161.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria..-CENTRO SOCIA</span> <span class="badge text-bg-success ms-2">23161</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23102.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria.: PRISS JUNTA. Personas situac.Vulnera</span> <span class="badge text-bg-success ms-2">23102</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23103.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria.:APOYO PSICO. UNIDAD CONVIVENCIAL</span> <span class="badge text-bg-success ms-2">23103</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23111.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: </span> <span class="badge text-bg-success ms-2">23111</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23101.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: APOYO PSIC. UNIDAD CONVIV.2014-2015</span> <span class="badge text-bg-success ms-2">23101</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23121.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: C</span> <span class="badge text-bg-success ms-2">23121</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23130.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: CENTRO DE DIA Y AULA MAYO. DE 50 AÑ</span> <span class="badge text-bg-success ms-2">23130</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23110.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: CENTRO DE LA MUJER.</span> <span class="badge text-bg-success ms-2">23110</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23120.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: CENTRO OCUPACIONAL.</span> <span class="badge text-bg-success ms-2">23120</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23160.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: CENTRO SOCIAL.</span> <span class="badge text-bg-success ms-2">23160</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23151.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: SE </span> <span class="badge text-bg-success ms-2">23151</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23150.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: SERVICIO AYUDA A DOMICILIO.</span> <span class="badge text-bg-success ms-2">23150</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23141.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: V.</span> <span class="badge text-bg-success ms-2">23141</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23140.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: VIVIENDA TUTELADA.</span> <span class="badge text-bg-success ms-2">23140</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23104.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Asistencia social primaria: ¿?</span> <span class="badge text-bg-success ms-2">23104</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24110.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>FOMENTO EMPLEO.- PROGRAMA OPERATIVO EMPLE</span> <span class="badge text-bg-success ms-2">24110</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24111.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>FOMENTO EMPLEO.- PROGRAMA OPERATIVO EMPLE</span> <span class="badge text-bg-success ms-2">24111</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24109.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Fomento del Empleo..- PLAN ESPECIAL ZONAS</span> <span class="badge text-bg-success ms-2">24109</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Fomento del empleo</span> <span class="badge text-bg-success ms-2">24100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23253.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>INSERTOR LABORAL: atencion personalizada per</span> <span class="badge text-bg-success ms-2">23253</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/22100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Otras prestaciones económicas a favor de empleados</span> <span class="badge text-bg-success ms-2">22100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24104.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>P.EMPLEO DIPUTACION PLAN DE EMERGENCIA </span> <span class="badge text-bg-success ms-2">24104</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24107.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>PLAN EMPLEO DIPUTACION 14-15</span> <span class="badge text-bg-success ms-2">24107</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24103.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>PLAN EMPLEO DIPUTACION-ACCION EXTRAORDINARIA </span> <span class="badge text-bg-success ms-2">24103</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24102.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>PLAN EMPLEO DIPUTACIÓN</span> <span class="badge text-bg-success ms-2">24102</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24106.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>PLAN ESPECIAL DE EMPLEO DIPUTACIÓN </span> <span class="badge text-bg-success ms-2">24106</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24101.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>PLAN ZONAS DEPRIMIDAS - SPEE</span> <span class="badge text-bg-success ms-2">24101</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24105.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>PLANES DE EMPLEO DIPUTACIÓN </span> <span class="badge text-bg-success ms-2">24105</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/21100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Pensiones</span> <span class="badge text-bg-success ms-2">21100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23320.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Personas dependientes: Centro Día</span> <span class="badge text-bg-success ms-2">23320</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23310.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Personas dependientes: Centro Ocupacional</span> <span class="badge text-bg-success ms-2">23310</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23340.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Personas dependientes: Scio. Ayuda Domicilio</span> <span class="badge text-bg-success ms-2">23340</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23330.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Personas dependientes: Vivienda tutelada</span> <span class="badge text-bg-success ms-2">23330</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24300.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Plan Acción Local SEPECAM</span> <span class="badge text-bg-success ms-2">24300</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23221.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción social-APOYO PSICOSOCIAL A LA UNIDAD CONVIVENCIAL</span> <span class="badge text-bg-success ms-2">23221</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23231.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción social-Prevención Conflicto Social-Talleres</span> <span class="badge text-bg-success ms-2">23231</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23251.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción social-Proy.Integración social. Personas sit.vulnerabil</span> <span class="badge text-bg-success ms-2">23251</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23222.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción social: Apoyo psicosocial a la uni conviven 2013-20</span> <span class="badge text-bg-success ms-2">23222</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23220.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción social: Ayuda integración inmigrantes (Dip.)</span> <span class="badge text-bg-success ms-2">23220</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23210.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción social: Centro Mujer</span> <span class="badge text-bg-success ms-2">23210</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23250.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción social: Insertor laboral</span> <span class="badge text-bg-success ms-2">23250</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23230.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción social: Proy. prevención conflicto social</span> <span class="badge text-bg-success ms-2">23230</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23211.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción social: Proyecto atención a familia y a infancia</span> <span class="badge text-bg-success ms-2">23211</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23240.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción social: Scio. atención mediación intercultural SAMI</span> <span class="badge text-bg-success ms-2">23240</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>TALLER DE EMPLEO SEPECAM</span> <span class="badge text-bg-success ms-2">24200</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24108.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>TALLER DE EMPLEO: TECNICO COMERCIAL EQUIPOS MECA. Y ELEC.</span> <span class="badge text-bg-success ms-2">24108</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23252.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>TECNICO SAMI: Scio. Atencion y mediacion int</span> <span class="badge text-bg-success ms-2">23252</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23112.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">23112</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23113.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">23113</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23114.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">23114</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23115.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">23115</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23162.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">23162</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/23163.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">23163</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24113.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">24113</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24115.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">24115</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24116.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">24116</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24117.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">24117</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24118.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">24118</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/24119.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-success ms-2">24119</span> </a>
+</li>
+<pre><code>       &lt;/ul&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+<div class="accordion-item">
+<pre><code>   &lt;h2 class="accordion-header"&gt;
+     &lt;button class="accordion-button" type="button"
+             data-bs-toggle="collapse" data-bs-target="#area3"&gt;
+       &lt;span class="badge text-bg-warning me-2"&gt;Área 3&lt;/span&gt;
+       &lt;strong&gt;Bienes Públicos Preferentes&lt;/strong&gt;
+       &lt;span class="ms-2 text-muted fw-normal small"&gt;(35 programas)&lt;/span&gt;
+     &lt;/button&gt;
+   &lt;/h2&gt;
+   &lt;div id="area3" class="accordion-collapse collapse show"&gt;
+     &lt;div class="accordion-body p-0"&gt;
+       &lt;ul class="list-unstyled mb-0 px-3 py-2"&gt;
+         &lt;li class="py-1 border-bottom border-light-subtle"&gt;
+     &lt;a href="programas/33000.html" class="text-decoration-none d-flex justify-content-between align-items-center"&gt;
+       &lt;span&gt;Administración General de Cultura&lt;/span&gt;
+       &lt;span class="badge text-bg-warning ms-2"&gt;33000&lt;/span&gt;
+     &lt;/a&gt;
+   &lt;/li&gt;</code></pre>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/32000.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Administración General de educación</span> <span class="badge text-bg-warning ms-2">32000</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/34000.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Administración Gral. de Deporte</span> <span class="badge text-bg-warning ms-2">34000</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33220.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Archivos.</span> <span class="badge text-bg-warning ms-2">33220</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33600.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Arqueología y protección del Patrimonio Histórico-Artístico</span> <span class="badge text-bg-warning ms-2">33600</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33500.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Artes escénicas</span> <span class="badge text-bg-warning ms-2">33500</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33210.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Bibliotecas públicas.</span> <span class="badge text-bg-warning ms-2">33210</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/32100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Educación preescolar y primaria</span> <span class="badge text-bg-warning ms-2">32100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33320.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Equipamientos culturales y museos: EL POSITO.</span> <span class="badge text-bg-warning ms-2">33320</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33310.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Equipamientos culturales y museos: TEATRO.</span> <span class="badge text-bg-warning ms-2">33310</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33800.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Fiestas populares y festejos</span> <span class="badge text-bg-warning ms-2">33800</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33801.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Fiestas populares y festejos: CULTURA.</span> <span class="badge text-bg-warning ms-2">33801</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33802.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Fiestas populares y festejos: JUVENTUD.</span> <span class="badge text-bg-warning ms-2">33802</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33803.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Fiestas populares y festejos: ¿?</span> <span class="badge text-bg-warning ms-2">33803</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/32310.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Funcio. de centros docentes de enseñanza preescolar y prim</span> <span class="badge text-bg-warning ms-2">32310</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/32300.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Funcionamiento de centros docentes de enseñanza prees. y prim</span> <span class="badge text-bg-warning ms-2">32300</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33601.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Gestión del Patrimonio Histórico-Artístico: OBRAS MEJORA CONJ.HIS</span> <span class="badge text-bg-warning ms-2">33601</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33720.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Instalaciones de ocupación del tiempo libre: AUDITORIO.</span> <span class="badge text-bg-warning ms-2">33720</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33710.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Instalaciones de ocupación del tiempo libre: CASA DE ASOC.</span> <span class="badge text-bg-warning ms-2">33710</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/34200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Instalaciones deportivas</span> <span class="badge text-bg-warning ms-2">34200</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33300.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Museos y Artes Plásticas</span> <span class="badge text-bg-warning ms-2">33300</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33700.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Ocio y tiempo libre</span> <span class="badge text-bg-warning ms-2">33700</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33400.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción cultural.</span> <span class="badge text-bg-warning ms-2">33400</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33401.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción cultural: UNIVERSIDAD POPULAR.</span> <span class="badge text-bg-warning ms-2">33401</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/34100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción y fomento del deporte</span> <span class="badge text-bg-warning ms-2">34100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/31100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Protección de la salubridad pública</span> <span class="badge text-bg-warning ms-2">31100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/31101.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Protección de la salubridad pública</span> <span class="badge text-bg-warning ms-2">31101</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/32610.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Servicios comple. de educación: ESCUELA DE MUSICA y DANZA</span> <span class="badge text-bg-warning ms-2">32610</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/32600.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Servicios complementarios de educación.</span> <span class="badge text-bg-warning ms-2">32600</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/32301.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-warning ms-2">32301</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33701.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-warning ms-2">33701</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33804.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-warning ms-2">33804</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/31110.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-warning ms-2">31110</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/33330.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿?</span> <span class="badge text-bg-warning ms-2">33330</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/32500.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Éducación - Escuela Música y Danza</span> <span class="badge text-bg-warning ms-2">32500</span> </a>
+</li>
+<pre><code>       &lt;/ul&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+<div class="accordion-item">
+<pre><code>   &lt;h2 class="accordion-header"&gt;
+     &lt;button class="accordion-button" type="button"
+             data-bs-toggle="collapse" data-bs-target="#area4"&gt;
+       &lt;span class="badge text-bg-danger me-2"&gt;Área 4&lt;/span&gt;
+       &lt;strong&gt;Actuaciones Económicas&lt;/strong&gt;
+       &lt;span class="ms-2 text-muted fw-normal small"&gt;(32 programas)&lt;/span&gt;
+     &lt;/button&gt;
+   &lt;/h2&gt;
+   &lt;div id="area4" class="accordion-collapse collapse show"&gt;
+     &lt;div class="accordion-body p-0"&gt;
+       &lt;ul class="list-unstyled mb-0 px-3 py-2"&gt;
+         &lt;li class="py-1 border-bottom border-light-subtle"&gt;
+     &lt;a href="programas/41000.html" class="text-decoration-none d-flex justify-content-between align-items-center"&gt;
+       &lt;span&gt;Adm. Gral. de Agricultura, Ganadería y Pesca&lt;/span&gt;
+       &lt;span class="badge text-bg-danger ms-2"&gt;41000&lt;/span&gt;
+     &lt;/a&gt;
+   &lt;/li&gt;</code></pre>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/45400.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Caminos vecinales</span> <span class="badge text-bg-danger ms-2">45400</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Comercio </span> <span class="badge text-bg-danger ms-2">43100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43130.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Comercio ambulante.</span> <span class="badge text-bg-danger ms-2">43130</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43203.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Curso promoción turística local</span> <span class="badge text-bg-danger ms-2">43203</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43300.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Desarrollo empresarial</span> <span class="badge text-bg-danger ms-2">43300</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43302.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Desarrollo empresarial: ESCUELA DE CATADORES</span> <span class="badge text-bg-danger ms-2">43302</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43303.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Desarrollo empresarial: ITECAM</span> <span class="badge text-bg-danger ms-2">43303</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43110.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Ferias.</span> <span class="badge text-bg-danger ms-2">43110</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/49200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Gestión del conocimiento</span> <span class="badge text-bg-danger ms-2">49200</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43204.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Información y promoción turística</span> <span class="badge text-bg-danger ms-2">43204</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/44200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Infraestructuras del transporte.</span> <span class="badge text-bg-danger ms-2">44200</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/49300.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Oficinal de defensa del consumidor</span> <span class="badge text-bg-danger ms-2">49300</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Ordenación y promoción turística</span> <span class="badge text-bg-danger ms-2">43200</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43201.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Ordenación y promoción turística</span> <span class="badge text-bg-danger ms-2">43201</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43202.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Ordenación y promoción turística (FIM)</span> <span class="badge text-bg-danger ms-2">43202</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/41900.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Otras actuaciones en agricultura, ganadería y pesca.</span> <span class="badge text-bg-danger ms-2">41900</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43301.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Plan Genera</span> <span class="badge text-bg-danger ms-2">43301</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43203.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción del turismo</span> <span class="badge text-bg-danger ms-2">43203</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/44100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Promoción, mantenimiento y desarrollo del transporte</span> <span class="badge text-bg-danger ms-2">44100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/45200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Recursos Hidraulicos</span> <span class="badge text-bg-danger ms-2">45200</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/49100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Sociedad de la información</span> <span class="badge text-bg-danger ms-2">49100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/44110.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Transporte colectivo urbano de viajeros.</span> <span class="badge text-bg-danger ms-2">44110</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43205.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-danger ms-2">43205</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43206.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-danger ms-2">43206</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43207.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-danger ms-2">43207</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43208.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-danger ms-2">43208</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43209.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-danger ms-2">43209</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43210.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-danger ms-2">43210</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43211.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-danger ms-2">43211</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/43304.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-danger ms-2">43304</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/49201.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>¿</span> <span class="badge text-bg-danger ms-2">49201</span> </a>
+</li>
+<pre><code>       &lt;/ul&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+<div class="accordion-item">
+<pre><code>   &lt;h2 class="accordion-header"&gt;
+     &lt;button class="accordion-button" type="button"
+             data-bs-toggle="collapse" data-bs-target="#area9"&gt;
+       &lt;span class="badge text-bg-secondary me-2"&gt;Área 9&lt;/span&gt;
+       &lt;strong&gt;Actuaciones Generales&lt;/strong&gt;
+       &lt;span class="ms-2 text-muted fw-normal small"&gt;(19 programas)&lt;/span&gt;
+     &lt;/button&gt;
+   &lt;/h2&gt;
+   &lt;div id="area9" class="accordion-collapse collapse show"&gt;
+     &lt;div class="accordion-body p-0"&gt;
+       &lt;ul class="list-unstyled mb-0 px-3 py-2"&gt;
+         &lt;li class="py-1 border-bottom border-light-subtle"&gt;
+     &lt;a href="programas/92404.html" class="text-decoration-none d-flex justify-content-between align-items-center"&gt;
+       &lt;span&gt;Activa Joven&lt;/span&gt;
+       &lt;span class="badge text-bg-secondary ms-2"&gt;92404&lt;/span&gt;
+     &lt;/a&gt;
+   &lt;/li&gt;</code></pre>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/92000.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Administración general</span> <span class="badge text-bg-secondary ms-2">92000</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/92200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Coodinación y organización institucional de las Entidades Locales</span> <span class="badge text-bg-secondary ms-2">92200</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/92403.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Dinamizador juvenil</span> <span class="badge text-bg-secondary ms-2">92403</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/92900.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>FONDO DE CONTINGENCIA</span> <span class="badge text-bg-secondary ms-2">92900</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/93300.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Gestión del patrimonio</span> <span class="badge text-bg-secondary ms-2">93300</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/93303.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Gestión del patrimonio: Cambio aire acondicionado Casa de Cultura</span> <span class="badge text-bg-secondary ms-2">93303</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/93305.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Gestión del patrimonio: ¿?</span> <span class="badge text-bg-secondary ms-2">93305</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/93306.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Gestión del patrimonio: ¿?</span> <span class="badge text-bg-secondary ms-2">93306</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/93304.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Gestión del patrimonio:Cambio aire acondicionado Escuela de Músic</span> <span class="badge text-bg-secondary ms-2">93304</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/93302.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Gestión del patrimonio:Obras Sitios del Cementerio</span> <span class="badge text-bg-secondary ms-2">93302</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/93301.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Gestión del patrimonio:Varias Reformas en Instalaciones Deportiva</span> <span class="badge text-bg-secondary ms-2">93301</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/93200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Gestión del sistema tributario.</span> <span class="badge text-bg-secondary ms-2">93200</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/92402.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Ludoteca</span> <span class="badge text-bg-secondary ms-2">92402</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/92400.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Participación ciudadana</span> <span class="badge text-bg-secondary ms-2">92400</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/92401.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Participación ciudadana-JUVENTUD Y CENTRO MATA</span> <span class="badge text-bg-secondary ms-2">92401</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/93100.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Política económica y fiscal</span> <span class="badge text-bg-secondary ms-2">93100</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/94400.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Transferencias a la Administración General del Estado</span> <span class="badge text-bg-secondary ms-2">94400</span> </a>
+</li>
+<li class="py-1 border-bottom border-light-subtle">
+<a href="programas/91200.html" class="text-decoration-none d-flex justify-content-between align-items-center"> <span>Órganos de gobierno</span> <span class="badge text-bg-secondary ms-2">91200</span> </a>
+</li>
+<pre><code>       &lt;/ul&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

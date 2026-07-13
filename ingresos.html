@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Ingresos Municipales</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -24,25 +27,28 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="ingresos_files/libs/clipboard/clipboard.min.js"></script>
-<script src="ingresos_files/libs/quarto-html/quarto.js"></script>
+<script src="ingresos_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="ingresos_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="ingresos_files/libs/quarto-html/popper.min.js"></script>
 <script src="ingresos_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="ingresos_files/libs/quarto-html/anchor.min.js"></script>
 <link href="ingresos_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="ingresos_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="ingresos_files/libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="ingresos_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="ingresos_files/libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="ingresos_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="ingresos_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="ingresos_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="ingresos_files/libs/bootstrap/bootstrap-1612d077681202f2e113f9100c102249.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="ingresos_files/libs/bootstrap/bootstrap-dark-d133a4b17ca58bb56d0c2ceab27a0a0e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="ingresos_files/libs/bootstrap/bootstrap-7d8869365d9a7f9e6e4229a10a8b948e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="ingresos_files/libs/bootstrap/bootstrap-dark-82ee33f9245ba3afd59dee2205d7de5d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="ingresos_files/libs/bootstrap/bootstrap-7d8869365d9a7f9e6e4229a10a8b948e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="ingresos_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
 <script src="ingresos_files/libs/quarto-dashboard/stickythead.js"></script>
-<script src="ingresos_files/libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
-<script src="ingresos_files/libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
-<script src="ingresos_files/libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
+
+
+
 <script src="ingresos_files/libs/quarto-dashboard/web-components.js" type="module"></script>
 <script src="ingresos_files/libs/quarto-dashboard/components.js"></script>
-<link href="ingresos_files/libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
+
 <link href="ingresos_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 <script src="ingresos_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="ingresos_files/libs/echarts4r-6.0.0/echarts.min.js"></script>
@@ -61,7 +67,169 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="quarto-dashboard dashboard-fill fullcontent">
+<body class="quarto-dashboard dashboard-fill fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <header id="quarto-dashboard-header">
 <nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
@@ -71,7 +239,8 @@ ul.task-list li input[type="checkbox"] {
     </button>    
 
 
-    <div class="navbar-brand-container">       
+    <div class="navbar-brand-container">
+
 
       <div class="navbar-title">
         <div class="navbar-title-text"><a href="#">Ingresos Municipales</a></div>
@@ -84,6 +253,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 <div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">  
 
+
 <div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
 <div id="totales" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-totales">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 45fr) minmax(3em, 55fr); grid-auto-columns: minmax(0, 1fr);">
@@ -95,8 +265,8 @@ Evolución Total de Ingresos (todos los conceptos)
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-a3586b71f3e039e95fb8" style="width:100%;height:500px;"></div>
-<script type="application/json" data-for="htmlwidget-a3586b71f3e039e95fb8">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","11467087"]},{"value":["2011","11057662"]},{"value":["2012","10375151"]},{"value":["2013","10439330"]},{"value":["2014","10191358"]},{"value":["2015"," 9875170"]},{"value":["2016"," 9904400"]},{"value":["2017","10288352"]},{"value":["2018","10489370"]},{"value":["2019","10778676"]},{"value":["2020","11050228"]},{"value":["2021","11305322"]},{"value":["2022","11735500"]},{"value":["2023","11935000"]},{"value":["2024","12187613"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","11402350"]},{"value":["2011","11816649"]},{"value":["2012","10799176"]},{"value":["2013","10912087"]},{"value":["2014","12037130"]},{"value":["2015","11483924"]},{"value":["2016","11658025"]},{"value":["2017","11537504"]},{"value":["2018","11505632"]},{"value":["2019","11583374"]},{"value":["2020","12253395"]},{"value":["2021","12995245"]},{"value":["2022","38565426"]},{"value":["2023","12797991"]},{"value":["2024","14186521"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-357d647403fd27746a35" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-357d647403fd27746a35">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","11467087"]},{"value":["2011","11057662"]},{"value":["2012","10375151"]},{"value":["2013","10439330"]},{"value":["2014","10191358"]},{"value":["2015"," 9875170"]},{"value":["2016"," 9904400"]},{"value":["2017","10288352"]},{"value":["2018","10489370"]},{"value":["2019","10778676"]},{"value":["2020","11050228"]},{"value":["2021","11305322"]},{"value":["2022","11735500"]},{"value":["2023","11935000"]},{"value":["2024","12187613"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","11402350"]},{"value":["2011","11816649"]},{"value":["2012","10799176"]},{"value":["2013","10912087"]},{"value":["2014","12037130"]},{"value":["2015","11483924"]},{"value":["2016","11658025"]},{"value":["2017","11537504"]},{"value":["2018","11505632"]},{"value":["2019","11583374"]},{"value":["2020","12253395"]},{"value":["2021","12995245"]},{"value":["2022","38565426"]},{"value":["2023","12797991"]},{"value":["2024","14186521"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -114,8 +284,8 @@ Detalle por Año
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-76a3e8bbae99aae752c0" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-76a3e8bbae99aae752c0">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["11.467.087,05 €","11.057.662,26 €","10.375.150,61 €","10.439.330,42 €","10.191.358,23 €","9.875.170,00 €","9.904.400,00 €","10.288.351,74 €","10.489.370,00 €","10.778.675,99 €","11.050.227,73 €","11.305.322,48 €","11.735.500,00 €","11.935.000,00 €","12.187.613,19 €"],["11.402.349,60 €","11.816.649,20 €","10.799.176,31 €","10.912.086,85 €","12.037.130,50 €","11.483.924,09 €","11.658.024,72 €","11.537.503,74 €","11.505.632,39 €","11.583.373,99 €","12.253.394,94 €","12.995.244,86 €","38.565.425,84 €","12.797.991,15 €","14.186.520,75 €"],[-64737.45000000112,758986.9399999995,424025.7000000011,472756.4299999997,1845772.27,1608754.09,1753624.720000001,1249152,1016262.390000001,804698,1203167.210000001,1689922.379999999,26829925.84,862991.1500000004,1998907.559999999],[-0.6,6.9,4.1,4.5,18.1,16.3,17.7,12.1,9.699999999999999,7.5,10.9,14.9,228.6,7.2,16.4],["-64.737,45 €","758.986,94 €","424.025,70 €","472.756,43 €","1.845.772,27 €","1.608.754,09 €","1.753.624,72 €","1.249.152,00 €","1.016.262,39 €","804.698,00 €","1.203.167,21 €","1.689.922,38 €","26.829.925,84 €","862.991,15 €","1.998.907,56 €"],["-60,0%","690,0%","410,0%","450,0%","1810,0%","1630,0%","1770,0%","1210,0%","970,0%","750,0%","1090,0%","1490,0%","22860,0%","720,0%","1640,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-fde9f6b8d7b10e68b3db" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-fde9f6b8d7b10e68b3db">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["11.467.087,05 €","11.057.662,26 €","10.375.150,61 €","10.439.330,42 €","10.191.358,23 €","9.875.170,00 €","9.904.400,00 €","10.288.351,74 €","10.489.370,00 €","10.778.675,99 €","11.050.227,73 €","11.305.322,48 €","11.735.500,00 €","11.935.000,00 €","12.187.613,19 €"],["11.402.349,60 €","11.816.649,20 €","10.799.176,31 €","10.912.086,85 €","12.037.130,50 €","11.483.924,09 €","11.658.024,72 €","11.537.503,74 €","11.505.632,39 €","11.583.373,99 €","12.253.394,94 €","12.995.244,86 €","38.565.425,84 €","12.797.991,15 €","14.186.520,75 €"],[-64737.45000000112,758986.9399999995,424025.7000000011,472756.4299999997,1845772.27,1608754.09,1753624.720000001,1249152,1016262.390000001,804698,1203167.210000001,1689922.379999999,26829925.84,862991.1500000004,1998907.559999999],[-0.6,6.9,4.1,4.5,18.1,16.3,17.7,12.1,9.699999999999999,7.5,10.9,14.9,228.6,7.2,16.4],["-64.737,45 €","758.986,94 €","424.025,70 €","472.756,43 €","1.845.772,27 €","1.608.754,09 €","1.753.624,72 €","1.249.152,00 €","1.016.262,39 €","804.698,00 €","1.203.167,21 €","1.689.922,38 €","26.829.925,84 €","862.991,15 €","1.998.907,56 €"],["-0,6%","6,9%","4,1%","4,5%","18,1%","16,3%","17,7%","12,1%","9,7%","7,5%","10,9%","14,9%","228,6%","7,2%","16,4%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -137,8 +307,8 @@ Evolución
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-f11b8f98f992ee40cd72" style="width:100%;height:500px;"></div>
-<script type="application/json" data-for="htmlwidget-f11b8f98f992ee40cd72">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","3162001"]},{"value":["2011","3385769"]},{"value":["2012","3814130"]},{"value":["2013","3879496"]},{"value":["2014","4011000"]},{"value":["2015","3877000"]},{"value":["2016","3905000"]},{"value":["2017","4105000"]},{"value":["2018","3844000"]},{"value":["2019","4065000"]},{"value":["2020","4026500"]},{"value":["2021","4103000"]},{"value":["2022","4045000"]},{"value":["2023","4057000"]},{"value":["2024","4317500"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","2984145"]},{"value":["2011","3068554"]},{"value":["2012","3587996"]},{"value":["2013","3743421"]},{"value":["2014","3849435"]},{"value":["2015","4016171"]},{"value":["2016","4183039"]},{"value":["2017","3684074"]},{"value":["2018","3556040"]},{"value":["2019","3983039"]},{"value":["2020","4424934"]},{"value":["2021","3913074"]},{"value":["2022","3824529"]},{"value":["2023","3687262"]},{"value":["2024","4200459"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-0b0ff6506e0c7315d5ff" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-0b0ff6506e0c7315d5ff">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","3162001"]},{"value":["2011","3385769"]},{"value":["2012","3814130"]},{"value":["2013","3879496"]},{"value":["2014","4011000"]},{"value":["2015","3877000"]},{"value":["2016","3905000"]},{"value":["2017","4105000"]},{"value":["2018","3844000"]},{"value":["2019","4065000"]},{"value":["2020","4026500"]},{"value":["2021","4103000"]},{"value":["2022","4045000"]},{"value":["2023","4057000"]},{"value":["2024","4317500"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","2984145"]},{"value":["2011","3068554"]},{"value":["2012","3587996"]},{"value":["2013","3743421"]},{"value":["2014","3849435"]},{"value":["2015","4016171"]},{"value":["2016","4183039"]},{"value":["2017","3684074"]},{"value":["2018","3556040"]},{"value":["2019","3983039"]},{"value":["2020","4424934"]},{"value":["2021","3913074"]},{"value":["2022","3824529"]},{"value":["2023","3687262"]},{"value":["2024","4200459"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -156,8 +326,8 @@ Detalle
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-7663bc9e056d3c4714d6" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-7663bc9e056d3c4714d6">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["3.162.000,75 €","3.385.769,37 €","3.814.130,33 €","3.879.496,32 €","4.011.000,00 €","3.877.000,00 €","3.905.000,00 €","4.105.000,00 €","3.844.000,00 €","4.065.000,00 €","4.026.500,00 €","4.103.000,00 €","4.045.000,00 €","4.057.000,00 €","4.317.500,00 €"],["2.984.144,56 €","3.068.553,65 €","3.587.995,85 €","3.743.420,76 €","3.849.435,43 €","4.016.171,38 €","4.183.038,54 €","3.684.074,32 €","3.556.040,47 €","3.983.038,99 €","4.424.933,69 €","3.913.073,77 €","3.824.528,53 €","3.687.262,34 €","4.200.459,28 €"],[-177856.1899999999,-317215.7200000002,-226134.48,-136075.5600000001,-161564.5699999998,139171.3799999999,278038.54,-420925.6800000002,-287959.5299999998,-81961.00999999978,398433.6900000004,-189926.23,-220471.4700000002,-369737.6600000001,-117040.7199999997],[-5.6,-9.4,-5.9,-3.5,-4,3.6,7.1,-10.3,-7.5,-2,9.9,-4.6,-5.5,-9.1,-2.7],["-177.856,19 €","-317.215,72 €","-226.134,48 €","-136.075,56 €","-161.564,57 €","139.171,38 €","278.038,54 €","-420.925,68 €","-287.959,53 €","-81.961,01 €","398.433,69 €","-189.926,23 €","-220.471,47 €","-369.737,66 €","-117.040,72 €"],["-560,0%","-940,0%","-590,0%","-350,0%","-400,0%","360,0%","710,0%","-1030,0%","-750,0%","-200,0%","990,0%","-460,0%","-550,0%","-910,0%","-270,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-4fc84c5db75d79156589" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4fc84c5db75d79156589">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["3.162.000,75 €","3.385.769,37 €","3.814.130,33 €","3.879.496,32 €","4.011.000,00 €","3.877.000,00 €","3.905.000,00 €","4.105.000,00 €","3.844.000,00 €","4.065.000,00 €","4.026.500,00 €","4.103.000,00 €","4.045.000,00 €","4.057.000,00 €","4.317.500,00 €"],["2.984.144,56 €","3.068.553,65 €","3.587.995,85 €","3.743.420,76 €","3.849.435,43 €","4.016.171,38 €","4.183.038,54 €","3.684.074,32 €","3.556.040,47 €","3.983.038,99 €","4.424.933,69 €","3.913.073,77 €","3.824.528,53 €","3.687.262,34 €","4.200.459,28 €"],[-177856.1899999999,-317215.7200000002,-226134.48,-136075.5600000001,-161564.5699999998,139171.3799999999,278038.54,-420925.6800000002,-287959.5299999998,-81961.00999999978,398433.6900000004,-189926.23,-220471.4700000002,-369737.6600000001,-117040.7199999997],[-5.6,-9.4,-5.9,-3.5,-4,3.6,7.1,-10.3,-7.5,-2,9.9,-4.6,-5.5,-9.1,-2.7],["-177.856,19 €","-317.215,72 €","-226.134,48 €","-136.075,56 €","-161.564,57 €","139.171,38 €","278.038,54 €","-420.925,68 €","-287.959,53 €","-81.961,01 €","398.433,69 €","-189.926,23 €","-220.471,47 €","-369.737,66 €","-117.040,72 €"],["-5,6%","-9,4%","-5,9%","-3,5%","-4,0%","3,6%","7,1%","-10,3%","-7,5%","-2,0%","9,9%","-4,6%","-5,5%","-9,1%","-2,7%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -179,8 +349,8 @@ Evolución
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-c232407da526ae982210" style="width:100%;height:500px;"></div>
-<script type="application/json" data-for="htmlwidget-c232407da526ae982210">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","302000.2"]},{"value":["2011","312433.6"]},{"value":["2012"," 90500.0"]},{"value":["2013"," 90500.0"]},{"value":["2014"," 54000.0"]},{"value":["2015"," 54000.0"]},{"value":["2016"," 54000.0"]},{"value":["2017"," 50000.0"]},{"value":["2018"," 90500.0"]},{"value":["2019","100000.0"]},{"value":["2020","140000.0"]},{"value":["2021","170000.0"]},{"value":["2022","170000.0"]},{"value":["2023","250000.0"]},{"value":["2024","220000.0"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","171647.25"]},{"value":["2011"," 89684.99"]},{"value":["2012","129411.93"]},{"value":["2013"," 66377.44"]},{"value":["2014"," 91773.72"]},{"value":["2015"," 84521.61"]},{"value":["2016"," 51853.35"]},{"value":["2017"," 88998.01"]},{"value":["2018","100659.28"]},{"value":["2019","125197.50"]},{"value":["2020","158851.82"]},{"value":["2021","260636.53"]},{"value":["2022","241108.23"]},{"value":["2023","130591.04"]},{"value":["2024","151061.35"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-844ec3c48730a321429d" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-844ec3c48730a321429d">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","302000.2"]},{"value":["2011","312433.6"]},{"value":["2012"," 90500.0"]},{"value":["2013"," 90500.0"]},{"value":["2014"," 54000.0"]},{"value":["2015"," 54000.0"]},{"value":["2016"," 54000.0"]},{"value":["2017"," 50000.0"]},{"value":["2018"," 90500.0"]},{"value":["2019","100000.0"]},{"value":["2020","140000.0"]},{"value":["2021","170000.0"]},{"value":["2022","170000.0"]},{"value":["2023","250000.0"]},{"value":["2024","220000.0"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","171647.25"]},{"value":["2011"," 89684.99"]},{"value":["2012","129411.93"]},{"value":["2013"," 66377.44"]},{"value":["2014"," 91773.72"]},{"value":["2015"," 84521.61"]},{"value":["2016"," 51853.35"]},{"value":["2017"," 88998.01"]},{"value":["2018","100659.28"]},{"value":["2019","125197.50"]},{"value":["2020","158851.82"]},{"value":["2021","260636.53"]},{"value":["2022","241108.23"]},{"value":["2023","130591.04"]},{"value":["2024","151061.35"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -198,8 +368,8 @@ Detalle
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-f5cfa8f643a857f6610a" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-f5cfa8f643a857f6610a">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["302.000,25 €","312.433,63 €","90.500,00 €","90.500,00 €","54.000,00 €","54.000,00 €","54.000,00 €","50.000,00 €","90.500,00 €","100.000,00 €","140.000,00 €","170.000,00 €","170.000,00 €","250.000,00 €","220.000,00 €"],["171.647,25 €","89.684,99 €","129.411,93 €","66.377,44 €","91.773,72 €","84.521,61 €","51.853,35 €","88.998,01 €","100.659,28 €","125.197,50 €","158.851,82 €","260.636,53 €","241.108,23 €","130.591,04 €","151.061,35 €"],[-130353,-222748.64,38911.92999999999,-24122.56,37773.72,30521.61,-2146.650000000001,38998.00999999999,10159.28,25197.5,18851.82000000001,90636.53,71108.23000000001,-119408.96,-68938.64999999999],[-43.2,-71.3,43,-26.7,70,56.5,-4,78,11.2,25.2,13.5,53.3,41.8,-47.8,-31.3],["-130.353,00 €","-222.748,64 €","38.911,93 €","-24.122,56 €","37.773,72 €","30.521,61 €","-2.146,65 €","38.998,01 €","10.159,28 €","25.197,50 €","18.851,82 €","90.636,53 €","71.108,23 €","-119.408,96 €","-68.938,65 €"],["-4320,0%","-7130,0%","4300,0%","-2670,0%","7000,0%","5650,0%","-400,0%","7800,0%","1120,0%","2520,0%","1350,0%","5330,0%","4180,0%","-4780,0%","-3130,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-3306deac022940a8458b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3306deac022940a8458b">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["302.000,25 €","312.433,63 €","90.500,00 €","90.500,00 €","54.000,00 €","54.000,00 €","54.000,00 €","50.000,00 €","90.500,00 €","100.000,00 €","140.000,00 €","170.000,00 €","170.000,00 €","250.000,00 €","220.000,00 €"],["171.647,25 €","89.684,99 €","129.411,93 €","66.377,44 €","91.773,72 €","84.521,61 €","51.853,35 €","88.998,01 €","100.659,28 €","125.197,50 €","158.851,82 €","260.636,53 €","241.108,23 €","130.591,04 €","151.061,35 €"],[-130353,-222748.64,38911.92999999999,-24122.56,37773.72,30521.61,-2146.650000000001,38998.00999999999,10159.28,25197.5,18851.82000000001,90636.53,71108.23000000001,-119408.96,-68938.64999999999],[-43.2,-71.3,43,-26.7,70,56.5,-4,78,11.2,25.2,13.5,53.3,41.8,-47.8,-31.3],["-130.353,00 €","-222.748,64 €","38.911,93 €","-24.122,56 €","37.773,72 €","30.521,61 €","-2.146,65 €","38.998,01 €","10.159,28 €","25.197,50 €","18.851,82 €","90.636,53 €","71.108,23 €","-119.408,96 €","-68.938,65 €"],["-43,2%","-71,3%","43,0%","-26,7%","70,0%","56,5%","-4,0%","78,0%","11,2%","25,2%","13,5%","53,3%","41,8%","-47,8%","-31,3%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -221,8 +391,8 @@ Evolución
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-ac2b83fa0412c5e59475" style="width:100%;height:500px;"></div>
-<script type="application/json" data-for="htmlwidget-ac2b83fa0412c5e59475">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","2809483"]},{"value":["2011","3304989"]},{"value":["2012","2838100"]},{"value":["2013","2838113"]},{"value":["2014","2702500"]},{"value":["2015","2601870"]},{"value":["2016","2678000"]},{"value":["2017","2551800"]},{"value":["2018","2846075"]},{"value":["2019","2695335"]},{"value":["2020","2923050"]},{"value":["2021","2919500"]},{"value":["2022","2988500"]},{"value":["2023","3140400"]},{"value":["2024","3189600"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","1835677"]},{"value":["2011","3174765"]},{"value":["2012","2714064"]},{"value":["2013","2661099"]},{"value":["2014","2875249"]},{"value":["2015","2888689"]},{"value":["2016","2703938"]},{"value":["2017","2857789"]},{"value":["2018","2801962"]},{"value":["2019","2897148"]},{"value":["2020","2477156"]},{"value":["2021","2825393"]},{"value":["2022","3080141"]},{"value":["2023","2992949"]},{"value":["2024","2908169"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-3e36b0e4b84fe093e1dd" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-3e36b0e4b84fe093e1dd">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","2809483"]},{"value":["2011","3304989"]},{"value":["2012","2838100"]},{"value":["2013","2838113"]},{"value":["2014","2702500"]},{"value":["2015","2601870"]},{"value":["2016","2678000"]},{"value":["2017","2551800"]},{"value":["2018","2846075"]},{"value":["2019","2695335"]},{"value":["2020","2923050"]},{"value":["2021","2919500"]},{"value":["2022","2988500"]},{"value":["2023","3140400"]},{"value":["2024","3189600"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","1835677"]},{"value":["2011","3174765"]},{"value":["2012","2714064"]},{"value":["2013","2661099"]},{"value":["2014","2875249"]},{"value":["2015","2888689"]},{"value":["2016","2703938"]},{"value":["2017","2857789"]},{"value":["2018","2801962"]},{"value":["2019","2897148"]},{"value":["2020","2477156"]},{"value":["2021","2825393"]},{"value":["2022","3080141"]},{"value":["2023","2992949"]},{"value":["2024","2908169"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -240,8 +410,8 @@ Detalle
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-7ff75731711a9c1b56e7" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-7ff75731711a9c1b56e7">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["2.809.482,64 €","3.304.989,25 €","2.838.100,00 €","2.838.113,00 €","2.702.500,00 €","2.601.870,00 €","2.678.000,00 €","2.551.800,00 €","2.846.075,00 €","2.695.335,00 €","2.923.050,00 €","2.919.500,00 €","2.988.500,00 €","3.140.400,00 €","3.189.600,00 €"],["1.835.676,71 €","3.174.765,01 €","2.714.064,49 €","2.661.099,08 €","2.875.249,27 €","2.888.689,11 €","2.703.937,72 €","2.857.789,37 €","2.801.961,68 €","2.897.148,45 €","2.477.156,32 €","2.825.393,08 €","3.080.141,38 €","2.992.949,47 €","2.908.168,81 €"],[-973805.9300000002,-130224.2400000002,-124035.5099999998,-177013.9199999999,172749.27,286819.1099999999,25937.7200000002,305989.3700000001,-44113.31999999983,201813.4500000002,-445893.6800000002,-94106.91999999993,91641.37999999989,-147450.5299999998,-281431.1899999999],[-34.7,-3.9,-4.4,-6.2,6.4,11,1,12,-1.5,7.5,-15.3,-3.2,3.1,-4.7,-8.800000000000001],["-973.805,93 €","-130.224,24 €","-124.035,51 €","-177.013,92 €","172.749,27 €","286.819,11 €","25.937,72 €","305.989,37 €","-44.113,32 €","201.813,45 €","-445.893,68 €","-94.106,92 €","91.641,38 €","-147.450,53 €","-281.431,19 €"],["-3470,0%","-390,0%","-440,0%","-620,0%","640,0%","1100,0%","100,0%","1200,0%","-150,0%","750,0%","-1530,0%","-320,0%","310,0%","-470,0%","-880,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-3f9869acca68696d73fa" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3f9869acca68696d73fa">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["2.809.482,64 €","3.304.989,25 €","2.838.100,00 €","2.838.113,00 €","2.702.500,00 €","2.601.870,00 €","2.678.000,00 €","2.551.800,00 €","2.846.075,00 €","2.695.335,00 €","2.923.050,00 €","2.919.500,00 €","2.988.500,00 €","3.140.400,00 €","3.189.600,00 €"],["1.835.676,71 €","3.174.765,01 €","2.714.064,49 €","2.661.099,08 €","2.875.249,27 €","2.888.689,11 €","2.703.937,72 €","2.857.789,37 €","2.801.961,68 €","2.897.148,45 €","2.477.156,32 €","2.825.393,08 €","3.080.141,38 €","2.992.949,47 €","2.908.168,81 €"],[-973805.9300000002,-130224.2400000002,-124035.5099999998,-177013.9199999999,172749.27,286819.1099999999,25937.7200000002,305989.3700000001,-44113.31999999983,201813.4500000002,-445893.6800000002,-94106.91999999993,91641.37999999989,-147450.5299999998,-281431.1899999999],[-34.7,-3.9,-4.4,-6.2,6.4,11,1,12,-1.5,7.5,-15.3,-3.2,3.1,-4.7,-8.800000000000001],["-973.805,93 €","-130.224,24 €","-124.035,51 €","-177.013,92 €","172.749,27 €","286.819,11 €","25.937,72 €","305.989,37 €","-44.113,32 €","201.813,45 €","-445.893,68 €","-94.106,92 €","91.641,38 €","-147.450,53 €","-281.431,19 €"],["-34,7%","-3,9%","-4,4%","-6,2%","6,4%","11,0%","1,0%","12,0%","-1,5%","7,5%","-15,3%","-3,2%","3,1%","-4,7%","-8,8%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -263,8 +433,8 @@ Evolución
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-bbaa92963186f9e833d7" style="width:100%;height:500px;"></div>
-<script type="application/json" data-for="htmlwidget-bbaa92963186f9e833d7">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","3985292"]},{"value":["2011","3526256"]},{"value":["2012","3553922"]},{"value":["2013","3565471"]},{"value":["2014","3361458"]},{"value":["2015","3272000"]},{"value":["2016","3235300"]},{"value":["2017","3553452"]},{"value":["2018","3670441"]},{"value":["2019","3880010"]},{"value":["2020","3928478"]},{"value":["2021","3976536"]},{"value":["2022","4168207"]},{"value":["2023","4348702"]},{"value":["2024","4416113"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","4277839"]},{"value":["2011","4377969"]},{"value":["2012","3754254"]},{"value":["2013","4085035"]},{"value":["2014","4592524"]},{"value":["2015","4227020"]},{"value":["2016","4424682"]},{"value":["2017","4480169"]},{"value":["2018","4569074"]},{"value":["2019","4216860"]},{"value":["2020","4359308"]},{"value":["2021","5287702"]},{"value":["2022","6260903"]},{"value":["2023","5479231"]},{"value":["2024","6045117"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-0eda09bdc3bcbb3aa744" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-0eda09bdc3bcbb3aa744">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","3985292"]},{"value":["2011","3526256"]},{"value":["2012","3553922"]},{"value":["2013","3565471"]},{"value":["2014","3361458"]},{"value":["2015","3272000"]},{"value":["2016","3235300"]},{"value":["2017","3553452"]},{"value":["2018","3670441"]},{"value":["2019","3880010"]},{"value":["2020","3928478"]},{"value":["2021","3976536"]},{"value":["2022","4168207"]},{"value":["2023","4348702"]},{"value":["2024","4416113"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","4277839"]},{"value":["2011","4377969"]},{"value":["2012","3754254"]},{"value":["2013","4085035"]},{"value":["2014","4592524"]},{"value":["2015","4227020"]},{"value":["2016","4424682"]},{"value":["2017","4480169"]},{"value":["2018","4569074"]},{"value":["2019","4216860"]},{"value":["2020","4359308"]},{"value":["2021","5287702"]},{"value":["2022","6260903"]},{"value":["2023","5479231"]},{"value":["2024","6045117"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -282,8 +452,8 @@ Detalle
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-a853e3ffd2931b2f5aa1" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-a853e3ffd2931b2f5aa1">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["3.985.292,09 €","3.526.256,26 €","3.553.922,28 €","3.565.471,10 €","3.361.458,23 €","3.272.000,00 €","3.235.300,00 €","3.553.451,74 €","3.670.440,75 €","3.880.009,90 €","3.928.477,73 €","3.976.535,50 €","4.168.206,83 €","4.348.702,11 €","4.416.113,19 €"],["4.277.838,76 €","4.377.968,97 €","3.754.254,28 €","4.085.035,09 €","4.592.523,84 €","4.227.020,18 €","4.424.682,09 €","4.480.169,20 €","4.569.074,44 €","4.216.859,72 €","4.359.307,61 €","5.287.702,41 €","6.260.902,55 €","5.479.231,36 €","6.045.117,34 €"],[292546.6699999999,851712.71,200332,519563.9899999998,1231065.61,955020.1799999997,1189382.09,926717.46,898633.6900000004,336849.8199999998,430829.8800000004,1311166.91,2092695.72,1130529.25,1629004.149999999],[7.3,24.2,5.6,14.6,36.6,29.2,36.8,26.1,24.5,8.699999999999999,11,33,50.2,26,36.9],["292.546,67 €","851.712,71 €","200.332,00 €","519.563,99 €","1.231.065,61 €","955.020,18 €","1.189.382,09 €","926.717,46 €","898.633,69 €","336.849,82 €","430.829,88 €","1.311.166,91 €","2.092.695,72 €","1.130.529,25 €","1.629.004,15 €"],["730,0%","2420,0%","560,0%","1460,0%","3660,0%","2920,0%","3680,0%","2610,0%","2450,0%","870,0%","1100,0%","3300,0%","5020,0%","2600,0%","3690,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-5f339f3973de67bb4b13" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5f339f3973de67bb4b13">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["3.985.292,09 €","3.526.256,26 €","3.553.922,28 €","3.565.471,10 €","3.361.458,23 €","3.272.000,00 €","3.235.300,00 €","3.553.451,74 €","3.670.440,75 €","3.880.009,90 €","3.928.477,73 €","3.976.535,50 €","4.168.206,83 €","4.348.702,11 €","4.416.113,19 €"],["4.277.838,76 €","4.377.968,97 €","3.754.254,28 €","4.085.035,09 €","4.592.523,84 €","4.227.020,18 €","4.424.682,09 €","4.480.169,20 €","4.569.074,44 €","4.216.859,72 €","4.359.307,61 €","5.287.702,41 €","6.260.902,55 €","5.479.231,36 €","6.045.117,34 €"],[292546.6699999999,851712.71,200332,519563.9899999998,1231065.61,955020.1799999997,1189382.09,926717.46,898633.6900000004,336849.8199999998,430829.8800000004,1311166.91,2092695.72,1130529.25,1629004.149999999],[7.3,24.2,5.6,14.6,36.6,29.2,36.8,26.1,24.5,8.699999999999999,11,33,50.2,26,36.9],["292.546,67 €","851.712,71 €","200.332,00 €","519.563,99 €","1.231.065,61 €","955.020,18 €","1.189.382,09 €","926.717,46 €","898.633,69 €","336.849,82 €","430.829,88 €","1.311.166,91 €","2.092.695,72 €","1.130.529,25 €","1.629.004,15 €"],["7,3%","24,2%","5,6%","14,6%","36,6%","29,2%","36,8%","26,1%","24,5%","8,7%","11,0%","33,0%","50,2%","26,0%","36,9%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -305,8 +475,8 @@ Evolución
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-aa8420fc45d799fea246" style="width:100%;height:500px;"></div>
-<script type="application/json" data-for="htmlwidget-aa8420fc45d799fea246">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","136534.89"]},{"value":["2011"," 65212.00"]},{"value":["2012"," 57500.00"]},{"value":["2013"," 49750.00"]},{"value":["2014"," 46400.00"]},{"value":["2015"," 54300.00"]},{"value":["2016"," 16100.00"]},{"value":["2017"," 16100.00"]},{"value":["2018"," 26354.25"]},{"value":["2019"," 26331.09"]},{"value":["2020"," 24200.00"]},{"value":["2021"," 46286.98"]},{"value":["2022"," 83793.17"]},{"value":["2023"," 78897.89"]},{"value":["2024"," 39400.00"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010"," 37862.23"]},{"value":["2011"," 65995.15"]},{"value":["2012"," 68963.58"]},{"value":["2013"," 48424.02"]},{"value":["2014"," 48118.18"]},{"value":["2015"," 24584.71"]},{"value":["2016"," 28879.12"]},{"value":["2017"," 25127.26"]},{"value":["2018"," 18986.05"]},{"value":["2019"," 32326.39"]},{"value":["2020","  8210.10"]},{"value":["2021"," 43431.49"]},{"value":["2022"," 62500.58"]},{"value":["2023"," 42476.06"]},{"value":["2024","196574.09"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-74508f37422521d85acb" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-74508f37422521d85acb">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","136534.89"]},{"value":["2011"," 65212.00"]},{"value":["2012"," 57500.00"]},{"value":["2013"," 49750.00"]},{"value":["2014"," 46400.00"]},{"value":["2015"," 54300.00"]},{"value":["2016"," 16100.00"]},{"value":["2017"," 16100.00"]},{"value":["2018"," 26354.25"]},{"value":["2019"," 26331.09"]},{"value":["2020"," 24200.00"]},{"value":["2021"," 46286.98"]},{"value":["2022"," 83793.17"]},{"value":["2023"," 78897.89"]},{"value":["2024"," 39400.00"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010"," 37862.23"]},{"value":["2011"," 65995.15"]},{"value":["2012"," 68963.58"]},{"value":["2013"," 48424.02"]},{"value":["2014"," 48118.18"]},{"value":["2015"," 24584.71"]},{"value":["2016"," 28879.12"]},{"value":["2017"," 25127.26"]},{"value":["2018"," 18986.05"]},{"value":["2019"," 32326.39"]},{"value":["2020","  8210.10"]},{"value":["2021"," 43431.49"]},{"value":["2022"," 62500.58"]},{"value":["2023"," 42476.06"]},{"value":["2024","196574.09"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -324,8 +494,8 @@ Detalle
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-73ab45df6d54adfd0b6b" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-73ab45df6d54adfd0b6b">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["136.534,89 €","65.212,00 €","57.500,00 €","49.750,00 €","46.400,00 €","54.300,00 €","16.100,00 €","16.100,00 €","26.354,25 €","26.331,09 €","24.200,00 €","46.286,98 €","83.793,17 €","78.897,89 €","39.400,00 €"],["37.862,23 €","65.995,15 €","68.963,58 €","48.424,02 €","48.118,18 €","24.584,71 €","28.879,12 €","25.127,26 €","18.986,05 €","32.326,39 €","8.210,10 €","43.431,49 €","62.500,58 €","42.476,06 €","196.574,09 €"],[-98672.66,783.1499999999942,11463.58,-1325.980000000003,1718.18,-29715.29,12779.12,9027.259999999998,-7368.200000000001,5995.299999999999,-15989.9,-2855.490000000005,-21292.59,-36421.83,157174.09],[-72.3,1.2,19.9,-2.7,3.7,-54.7,79.40000000000001,56.1,-28,22.8,-66.09999999999999,-6.2,-25.4,-46.2,398.9],["-98.672,66 €","783,15 €","11.463,58 €","-1.325,98 €","1.718,18 €","-29.715,29 €","12.779,12 €","9.027,26 €","-7.368,20 €","5.995,30 €","-15.989,90 €","-2.855,49 €","-21.292,59 €","-36.421,83 €","157.174,09 €"],["-7230,0%","120,0%","1990,0%","-270,0%","370,0%","-5470,0%","7940,0%","5610,0%","-2800,0%","2280,0%","-6610,0%","-620,0%","-2540,0%","-4620,0%","39890,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-ebc468b3ad8f8491edad" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ebc468b3ad8f8491edad">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["136.534,89 €","65.212,00 €","57.500,00 €","49.750,00 €","46.400,00 €","54.300,00 €","16.100,00 €","16.100,00 €","26.354,25 €","26.331,09 €","24.200,00 €","46.286,98 €","83.793,17 €","78.897,89 €","39.400,00 €"],["37.862,23 €","65.995,15 €","68.963,58 €","48.424,02 €","48.118,18 €","24.584,71 €","28.879,12 €","25.127,26 €","18.986,05 €","32.326,39 €","8.210,10 €","43.431,49 €","62.500,58 €","42.476,06 €","196.574,09 €"],[-98672.66,783.1499999999942,11463.58,-1325.980000000003,1718.18,-29715.29,12779.12,9027.259999999998,-7368.200000000001,5995.299999999999,-15989.9,-2855.490000000005,-21292.59,-36421.83,157174.09],[-72.3,1.2,19.9,-2.7,3.7,-54.7,79.40000000000001,56.1,-28,22.8,-66.09999999999999,-6.2,-25.4,-46.2,398.9],["-98.672,66 €","783,15 €","11.463,58 €","-1.325,98 €","1.718,18 €","-29.715,29 €","12.779,12 €","9.027,26 €","-7.368,20 €","5.995,30 €","-15.989,90 €","-2.855,49 €","-21.292,59 €","-36.421,83 €","157.174,09 €"],["-72,3%","1,2%","19,9%","-2,7%","3,7%","-54,7%","79,4%","56,1%","-28,0%","22,8%","-66,1%","-6,2%","-25,4%","-46,2%","398,9%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -347,8 +517,8 @@ Evolución
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-1e9148f5ff466959c42a" style="width:100%;height:500px;"></div>
-<script type="application/json" data-for="htmlwidget-1e9148f5ff466959c42a">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","    1"]},{"value":["2011","    1"]},{"value":["2012","    0"]},{"value":["2013","    0"]},{"value":["2014","    0"]},{"value":["2015","    0"]},{"value":["2016","    0"]},{"value":["2017","    0"]},{"value":["2018","    0"]},{"value":["2019","    0"]},{"value":["2020","    0"]},{"value":["2021","80000"]},{"value":["2022","80000"]},{"value":["2023","50000"]},{"value":["2024","    0"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","       0.00"]},{"value":["2011","       0.00"]},{"value":["2012","       0.00"]},{"value":["2013","       0.00"]},{"value":["2014","  134306.28"]},{"value":["2015","       0.00"]},{"value":["2016","       0.00"]},{"value":["2017","    4152.50"]},{"value":["2018","       0.00"]},{"value":["2019","       0.00"]},{"value":["2020","   33225.00"]},{"value":["2021","   82568.59"]},{"value":["2022","23205664.00"]},{"value":["2023","   72231.40"]},{"value":["2024","  210384.76"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-5aa7de81074d399e6aac" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-5aa7de81074d399e6aac">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","    1"]},{"value":["2011","    1"]},{"value":["2012","    0"]},{"value":["2013","    0"]},{"value":["2014","    0"]},{"value":["2015","    0"]},{"value":["2016","    0"]},{"value":["2017","    0"]},{"value":["2018","    0"]},{"value":["2019","    0"]},{"value":["2020","    0"]},{"value":["2021","80000"]},{"value":["2022","80000"]},{"value":["2023","50000"]},{"value":["2024","    0"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","       0.00"]},{"value":["2011","       0.00"]},{"value":["2012","       0.00"]},{"value":["2013","       0.00"]},{"value":["2014","  134306.28"]},{"value":["2015","       0.00"]},{"value":["2016","       0.00"]},{"value":["2017","    4152.50"]},{"value":["2018","       0.00"]},{"value":["2019","       0.00"]},{"value":["2020","   33225.00"]},{"value":["2021","   82568.59"]},{"value":["2022","23205664.00"]},{"value":["2023","   72231.40"]},{"value":["2024","  210384.76"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -366,8 +536,8 @@ Detalle
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-b11330e9aac1a6b86532" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-b11330e9aac1a6b86532">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["1,00 €","1,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","80.000,00 €","80.000,00 €","50.000,00 €","0,00 €"],["0,00 €","0,00 €","0,00 €","0,00 €","134.306,28 €","0,00 €","0,00 €","4.152,50 €","0,00 €","0,00 €","33.225,00 €","82.568,59 €","23.205.664,00 €","72.231,40 €","210.384,76 €"],[-1,-1,0,0,134306.28,0,0,4152.5,0,0,33225,2568.589999999997,23125664,22231.39999999999,210384.76],[-100,-100,0,0,0,0,0,0,0,0,0,3.2,28907.1,44.5,0],["-1,00 €","-1,00 €","0,00 €","0,00 €","134.306,28 €","0,00 €","0,00 €","4.152,50 €","0,00 €","0,00 €","33.225,00 €","2.568,59 €","23.125.664,00 €","22.231,40 €","210.384,76 €"],["-10000,0%","-10000,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","320,0%","2890710,0%","4450,0%","0,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-011972b39f4bfc016950" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-011972b39f4bfc016950">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["1,00 €","1,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","80.000,00 €","80.000,00 €","50.000,00 €","0,00 €"],["0,00 €","0,00 €","0,00 €","0,00 €","134.306,28 €","0,00 €","0,00 €","4.152,50 €","0,00 €","0,00 €","33.225,00 €","82.568,59 €","23.205.664,00 €","72.231,40 €","210.384,76 €"],[-1,-1,0,0,134306.28,0,0,4152.5,0,0,33225,2568.589999999997,23125664,22231.39999999999,210384.76],[-100,-100,0,0,0,0,0,0,0,0,0,3.2,28907.1,44.5,0],["-1,00 €","-1,00 €","0,00 €","0,00 €","134.306,28 €","0,00 €","0,00 €","4.152,50 €","0,00 €","0,00 €","33.225,00 €","2.568,59 €","23.125.664,00 €","22.231,40 €","210.384,76 €"],["-100,0%","-100,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","3,2%","28907,1%","44,5%","0,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -389,8 +559,8 @@ Evolución
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-4c640d9c9c1762340a14" style="width:100%;height:500px;"></div>
-<script type="application/json" data-for="htmlwidget-4c640d9c9c1762340a14">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","379594.6"]},{"value":["2011","427000.8"]},{"value":["2012","  4998.0"]},{"value":["2013","     0.0"]},{"value":["2014","     0.0"]},{"value":["2015","     0.0"]},{"value":["2016","     0.0"]},{"value":["2017","     0.0"]},{"value":["2018","     0.0"]},{"value":["2019","     0.0"]},{"value":["2020","     0.0"]},{"value":["2021","     0.0"]},{"value":["2022","190000.0"]},{"value":["2023","     0.0"]},{"value":["2024","     0.0"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","1432658.4"]},{"value":["2011"," 481236.4"]},{"value":["2012"," 135198.0"]},{"value":["2013"," 294174.2"]},{"value":["2014"," 432621.7"]},{"value":["2015"," 230527.0"]},{"value":["2016"," 246881.0"]},{"value":["2017"," 395493.1"]},{"value":["2018"," 448000.7"]},{"value":["2019"," 321947.7"]},{"value":["2020"," 782910.4"]},{"value":["2021"," 383061.4"]},{"value":["2022","1882308.8"]},{"value":["2023"," 307852.3"]},{"value":["2024"," 472655.1"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-76ca86e521f8542cffe2" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-76ca86e521f8542cffe2">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","379594.6"]},{"value":["2011","427000.8"]},{"value":["2012","  4998.0"]},{"value":["2013","     0.0"]},{"value":["2014","     0.0"]},{"value":["2015","     0.0"]},{"value":["2016","     0.0"]},{"value":["2017","     0.0"]},{"value":["2018","     0.0"]},{"value":["2019","     0.0"]},{"value":["2020","     0.0"]},{"value":["2021","     0.0"]},{"value":["2022","190000.0"]},{"value":["2023","     0.0"]},{"value":["2024","     0.0"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","1432658.4"]},{"value":["2011"," 481236.4"]},{"value":["2012"," 135198.0"]},{"value":["2013"," 294174.2"]},{"value":["2014"," 432621.7"]},{"value":["2015"," 230527.0"]},{"value":["2016"," 246881.0"]},{"value":["2017"," 395493.1"]},{"value":["2018"," 448000.7"]},{"value":["2019"," 321947.7"]},{"value":["2020"," 782910.4"]},{"value":["2021"," 383061.4"]},{"value":["2022","1882308.8"]},{"value":["2023"," 307852.3"]},{"value":["2024"," 472655.1"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -408,8 +578,8 @@ Detalle
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-81a6b15a6b0c04242732" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-81a6b15a6b0c04242732">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["379.594,61 €","427.000,75 €","4.998,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","190.000,00 €","0,00 €","0,00 €"],["1.432.658,44 €","481.236,38 €","135.198,03 €","294.174,24 €","432.621,66 €","230.527,00 €","246.881,00 €","395.493,08 €","448.000,69 €","321.947,68 €","782.910,40 €","383.061,40 €","1.882.308,77 €","307.852,26 €","472.655,12 €"],[1053063.83,54235.63,130200.03,294174.24,432621.66,230527,246881,395493.08,448000.69,321947.68,782910.4,383061.4,1692308.77,307852.26,472655.12],[277.4,12.7,2605,0,0,0,0,0,0,0,0,0,890.7,0,0],["1.053.063,83 €","54.235,63 €","130.200,03 €","294.174,24 €","432.621,66 €","230.527,00 €","246.881,00 €","395.493,08 €","448.000,69 €","321.947,68 €","782.910,40 €","383.061,40 €","1.692.308,77 €","307.852,26 €","472.655,12 €"],["27740,0%","1270,0%","260500,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","89070,0%","0,0%","0,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-01a257d1b104bb4f2320" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-01a257d1b104bb4f2320">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["379.594,61 €","427.000,75 €","4.998,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","190.000,00 €","0,00 €","0,00 €"],["1.432.658,44 €","481.236,38 €","135.198,03 €","294.174,24 €","432.621,66 €","230.527,00 €","246.881,00 €","395.493,08 €","448.000,69 €","321.947,68 €","782.910,40 €","383.061,40 €","1.882.308,77 €","307.852,26 €","472.655,12 €"],[1053063.83,54235.63,130200.03,294174.24,432621.66,230527,246881,395493.08,448000.69,321947.68,782910.4,383061.4,1692308.77,307852.26,472655.12],[277.4,12.7,2605,0,0,0,0,0,0,0,0,0,890.7,0,0],["1.053.063,83 €","54.235,63 €","130.200,03 €","294.174,24 €","432.621,66 €","230.527,00 €","246.881,00 €","395.493,08 €","448.000,69 €","321.947,68 €","782.910,40 €","383.061,40 €","1.692.308,77 €","307.852,26 €","472.655,12 €"],["277,4%","12,7%","2605,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","890,7%","0,0%","0,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -431,8 +601,8 @@ Evolución
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-766d0f62eb84b5f51b37" style="width:100%;height:500px;"></div>
-<script type="application/json" data-for="htmlwidget-766d0f62eb84b5f51b37">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","36000"]},{"value":["2011","36000"]},{"value":["2012","16000"]},{"value":["2013","16000"]},{"value":["2014","16000"]},{"value":["2015","16000"]},{"value":["2016","16000"]},{"value":["2017","12000"]},{"value":["2018","12000"]},{"value":["2019","12000"]},{"value":["2020"," 8000"]},{"value":["2021","10000"]},{"value":["2022","10000"]},{"value":["2023","10000"]},{"value":["2024"," 5000"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010"," 6340.83"]},{"value":["2011"," 4902.96"]},{"value":["2012","17438.10"]},{"value":["2013","13556.22"]},{"value":["2014","13102.12"]},{"value":["2015","12410.10"]},{"value":["2016","18752.90"]},{"value":["2017"," 1700.00"]},{"value":["2018","10909.78"]},{"value":["2019"," 6855.26"]},{"value":["2020"," 8800.00"]},{"value":["2021"," 9377.59"]},{"value":["2022"," 8271.80"]},{"value":["2023"," 6713.60"]},{"value":["2024"," 2100.00"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-42f4d900bbc566e6d7f7" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-42f4d900bbc566e6d7f7">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","36000"]},{"value":["2011","36000"]},{"value":["2012","16000"]},{"value":["2013","16000"]},{"value":["2014","16000"]},{"value":["2015","16000"]},{"value":["2016","16000"]},{"value":["2017","12000"]},{"value":["2018","12000"]},{"value":["2019","12000"]},{"value":["2020"," 8000"]},{"value":["2021","10000"]},{"value":["2022","10000"]},{"value":["2023","10000"]},{"value":["2024"," 5000"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010"," 6340.83"]},{"value":["2011"," 4902.96"]},{"value":["2012","17438.10"]},{"value":["2013","13556.22"]},{"value":["2014","13102.12"]},{"value":["2015","12410.10"]},{"value":["2016","18752.90"]},{"value":["2017"," 1700.00"]},{"value":["2018","10909.78"]},{"value":["2019"," 6855.26"]},{"value":["2020"," 8800.00"]},{"value":["2021"," 9377.59"]},{"value":["2022"," 8271.80"]},{"value":["2023"," 6713.60"]},{"value":["2024"," 2100.00"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -450,8 +620,8 @@ Detalle
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-3c838d091cc2078a8a93" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-3c838d091cc2078a8a93">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["36.000,00 €","36.000,00 €","16.000,00 €","16.000,00 €","16.000,00 €","16.000,00 €","16.000,00 €","12.000,00 €","12.000,00 €","12.000,00 €","8.000,00 €","10.000,00 €","10.000,00 €","10.000,00 €","5.000,00 €"],["6.340,83 €","4.902,96 €","17.438,10 €","13.556,22 €","13.102,12 €","12.410,10 €","18.752,90 €","1.700,00 €","10.909,78 €","6.855,26 €","8.800,00 €","9.377,59 €","8.271,80 €","6.713,60 €","2.100,00 €"],[-29659.17,-31097.04,1438.099999999999,-2443.780000000001,-2897.879999999999,-3589.9,2752.900000000001,-10300,-1090.219999999999,-5144.74,800,-622.4099999999999,-1728.200000000001,-3286.4,-2900],[-82.40000000000001,-86.40000000000001,9,-15.3,-18.1,-22.4,17.2,-85.8,-9.1,-42.9,10,-6.2,-17.3,-32.9,-58],["-29.659,17 €","-31.097,04 €","1.438,10 €","-2.443,78 €","-2.897,88 €","-3.589,90 €","2.752,90 €","-10.300,00 €","-1.090,22 €","-5.144,74 €","800,00 €","-622,41 €","-1.728,20 €","-3.286,40 €","-2.900,00 €"],["-8240,0%","-8640,0%","900,0%","-1530,0%","-1810,0%","-2240,0%","1720,0%","-8580,0%","-910,0%","-4290,0%","1000,0%","-620,0%","-1730,0%","-3290,0%","-5800,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-1168b78a02bdd0ed5021" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1168b78a02bdd0ed5021">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["36.000,00 €","36.000,00 €","16.000,00 €","16.000,00 €","16.000,00 €","16.000,00 €","16.000,00 €","12.000,00 €","12.000,00 €","12.000,00 €","8.000,00 €","10.000,00 €","10.000,00 €","10.000,00 €","5.000,00 €"],["6.340,83 €","4.902,96 €","17.438,10 €","13.556,22 €","13.102,12 €","12.410,10 €","18.752,90 €","1.700,00 €","10.909,78 €","6.855,26 €","8.800,00 €","9.377,59 €","8.271,80 €","6.713,60 €","2.100,00 €"],[-29659.17,-31097.04,1438.099999999999,-2443.780000000001,-2897.879999999999,-3589.9,2752.900000000001,-10300,-1090.219999999999,-5144.74,800,-622.4099999999999,-1728.200000000001,-3286.4,-2900],[-82.40000000000001,-86.40000000000001,9,-15.3,-18.1,-22.4,17.2,-85.8,-9.1,-42.9,10,-6.2,-17.3,-32.9,-58],["-29.659,17 €","-31.097,04 €","1.438,10 €","-2.443,78 €","-2.897,88 €","-3.589,90 €","2.752,90 €","-10.300,00 €","-1.090,22 €","-5.144,74 €","800,00 €","-622,41 €","-1.728,20 €","-3.286,40 €","-2.900,00 €"],["-82,4%","-86,4%","9,0%","-15,3%","-18,1%","-22,4%","17,2%","-85,8%","-9,1%","-42,9%","10,0%","-6,2%","-17,3%","-32,9%","-58,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -473,8 +643,8 @@ Evolución
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-ee1bc914b87b111cd573" style="width:100%;height:500px;"></div>
-<script type="application/json" data-for="htmlwidget-ee1bc914b87b111cd573">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","656180.8"]},{"value":["2011","     0.0"]},{"value":["2012","     0.0"]},{"value":["2013","     0.0"]},{"value":["2014","     0.0"]},{"value":["2015","     0.0"]},{"value":["2016","     0.0"]},{"value":["2017","     0.0"]},{"value":["2018","     0.0"]},{"value":["2019","     0.0"]},{"value":["2020","     0.0"]},{"value":["2021","     0.0"]},{"value":["2022","     0.0"]},{"value":["2023","     0.0"]},{"value":["2024","     0.0"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","656180.82"]},{"value":["2011","553542.09"]},{"value":["2012","391850.05"]},{"value":["2013","     0.00"]},{"value":["2014","     0.00"]},{"value":["2015","     0.00"]},{"value":["2016","     0.00"]},{"value":["2017","     0.00"]},{"value":["2018","     0.00"]},{"value":["2019","     0.00"]},{"value":["2020","     0.00"]},{"value":["2021","190000.00"]},{"value":["2022","     0.00"]},{"value":["2023"," 78683.62"]},{"value":["2024","     0.00"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
+<div class="echarts4r html-widget html-fill-item html-fill-container" id="htmlwidget-ef0c48534b6f290faf4c" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-ef0c48534b6f290faf4c">{"x":{"theme":"","tl":false,"draw":true,"renderer":"canvas","events":[],"buttons":[],"opts":{"yAxis":[{"show":true,"axisLabel":{"formatter":"\n        function(val) {\n          return (val / 1000000).toFixed(1).replace('.', ',') + ' M€';\n        }\n      "}}],"xAxis":[{"data":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"type":"category","boundaryGap":true}],"legend":{"data":["Presupuesto","Liquidación"],"show":true,"type":"plain","top":"top","left":"center"},"series":[{"data":[{"value":["2010","656180.8"]},{"value":["2011","     0.0"]},{"value":["2012","     0.0"]},{"value":["2013","     0.0"]},{"value":["2014","     0.0"]},{"value":["2015","     0.0"]},{"value":["2016","     0.0"]},{"value":["2017","     0.0"]},{"value":["2018","     0.0"]},{"value":["2019","     0.0"]},{"value":["2020","     0.0"]},{"value":["2021","     0.0"]},{"value":["2022","     0.0"]},{"value":["2023","     0.0"]},{"value":["2024","     0.0"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Presupuesto","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}},{"data":[{"value":["2010","656180.82"]},{"value":["2011","553542.09"]},{"value":["2012","391850.05"]},{"value":["2013","     0.00"]},{"value":["2014","     0.00"]},{"value":["2015","     0.00"]},{"value":["2016","     0.00"]},{"value":["2017","     0.00"]},{"value":["2018","     0.00"]},{"value":["2019","     0.00"]},{"value":["2020","     0.00"]},{"value":["2021","190000.00"]},{"value":["2022","     0.00"]},{"value":["2023"," 78683.62"]},{"value":["2024","     0.00"]}],"yAxisIndex":0,"xAxisIndex":0,"name":"Liquidación","type":"line","coordinateSystem":"cartesian2d","smooth":false,"symbol":"circle","symbolSize":8,"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.08}}],"color":["#2563eb","#059669"],"tooltip":{"trigger":"axis","formatter":"\n                function(params) {\n                  var tip = '<strong>' + params[0].axisValue + '<\/strong><br/>';\n                  params.forEach(function(p) {\n                    var val = p.value[1].toLocaleString('es-ES',\n                      {minimumFractionDigits: 2, maximumFractionDigits: 2});\n                    tip += p.marker + ' ' + p.seriesName + ': ' + val + ' €<br/>';\n                  });\n                  return tip;\n                }\n              "},"grid":[{"left":"12%","right":"5%","bottom":"12%"}],"toolbox":{"feature":{"saveAsImage":{"title":"Guardar"},"dataZoom":{"title":"Zoom"}}},"dataZoom":[{"type":"inside"}]},"dispose":true},"evals":["opts.yAxis.0.axisLabel.formatter","opts.tooltip.formatter"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -492,8 +662,8 @@ Detalle
 </span></div></div>
 <div class="card-body html-fill-item html-fill-container">
 <div class="cell-output-display html-fill-item html-fill-container">
-<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-fa80475859a9cddb72f0" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-fa80475859a9cddb72f0">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["656.180,82 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €"],["656.180,82 €","553.542,09 €","391.850,05 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","190.000,00 €","0,00 €","78.683,62 €","0,00 €"],[0,553542.09,391850.05,0,0,0,0,0,0,0,0,190000,0,78683.62,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],["0,00 €","553.542,09 €","391.850,05 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","190.000,00 €","0,00 €","78.683,62 €","0,00 €"],["0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-d92b61c8eefbd79aa98f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d92b61c8eefbd79aa98f">{"x":{"filter":"none","vertical":false,"data":[["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],["656.180,82 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €"],["656.180,82 €","553.542,09 €","391.850,05 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","190.000,00 €","0,00 €","78.683,62 €","0,00 €"],[0,553542.09,391850.05,0,0,0,0,0,0,0,0,190000,0,78683.62,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],["0,00 €","553.542,09 €","391.850,05 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","0,00 €","190.000,00 €","0,00 €","78.683,62 €","0,00 €"],["0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%","0,0%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Año<\/th>\n      <th>Presupuesto<\/th>\n      <th>Liquidación<\/th>\n      <th>Dif_abs<\/th>\n      <th>Dif_rel<\/th>\n      <th>Diferencia (€)<\/th>\n      <th>Diferencia (%)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"tip","language":{"info":"Showing _TOTAL_ entries"},"pageLength":15,"scrollX":true,"columnDefs":[{"className":"dt-right","targets":"_all"},{"visible":false,"targets":[3,4]},{"name":"Año","targets":0},{"name":"Presupuesto","targets":1},{"name":"Liquidación","targets":2},{"name":"Dif_abs","targets":3},{"name":"Dif_rel","targets":4},{"name":"Diferencia (€)","targets":5},{"name":"Diferencia (%)","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,15,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'text-align':'right'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'text-align':'right'});\nvar value=data[3]; $(this.api().cell(row, 5).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\nvar value=data[4]; $(this.api().cell(row, 6).node()).css({'font-weight':'bold','color':isNaN(parseFloat(value)) ? '' : value <= 0 ? \"#e74c3c\" : \"#059669\",'text-align':'right'});\n}"},"selection":{"mode":"multiple","selected":null,"target":"row","selectable":null}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
@@ -511,380 +681,256 @@ Detalle
 
 
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
       return false;
     }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -892,185 +938,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /container fluid -->
 
 <script type="application/javascript">
